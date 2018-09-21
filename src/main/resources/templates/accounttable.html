@@ -17,26 +17,11 @@
 	 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-2 sidenav"></br>
-      <h4  th:text="${welcome}"></h4></br>
-      <div>
-        <form action="/" >
-         <button type="submit" class="btn btn-warning"> Home </button></br>
-         </form>
-         <hr>
-         <form action="/listaccount" method="GET">
-         <button type="submit" class="btn btn-warning"> Accounts </button></br>
-         </form>
-         <hr>
-         <form action="/listposition" method="GET">
-         <button type="submit" class="btn btn-warning"> Positions </button></br>
-         </form>
-         <hr>
-       
-      </div>
+      <div th:replace="fragments/navbar"> </div>
     </div>
 
     <div class="col-sm-10">
-		      <h4>Accounts Table</h4>
+		      <h4>Accounts Table<span> <button class="btn btn-info" data-toggle="modal" data-target="#addaccount">Add new account</button></span></h4>
 		      </hr>
 		      <table id="accountTable" class="table table-striped" >
 		  
@@ -137,7 +122,7 @@
 
 
 
-
+  <div th:replace="fragments/modals/addaccount"></div>
   <div th:replace="fragments/modals/accountedit1"></div>
   <div th:replace="fragments/footplugs"> </div>
 </body>

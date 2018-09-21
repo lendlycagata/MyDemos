@@ -4,106 +4,40 @@
   <div class="modal fade" id="editdetails" role="dialog">
     <div class="modal-dialog">
     
-      Modal content
+      
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          
         </div>
         <div class="modal-body">
-        <p>This is edit details modal</p>
-        <div class="container">
-             <div class="row content">
-             <form>
-  				<div class="col-m-5">
-  					<p>Account Id</p>
-                     <input type="number" id="account_id" name="ACCOUNT_ID" >
-          			 <hr>
-          			 
-          			<p>Account Location</p>
-                    <input type="text" id= "location" name="LOCATION" >
-                    <hr>
-                     
-                     <p>Account Line of Business</p>
-                     <input type="text" id= "lob" name="LOB">
-  					 <hr>
-  					 
-  					 <p>Educational Requirements</p>
-  					 <input type="text" id= "education" name="EDUCATION" value="">
-  				     <hr>
-  				     
-  				     
-  				     <p>Operating Hours</p>
-  				      <input type="text" id= "operating_hours" name="OPERATING_HOURS" value="">
-  				     <hr>
-  				     
-  				     <p>Category</p>
-  				     <input type="text" id= "category" name="CATEGORY" value="">
-  				    <hr>
-  				</div>
-  				 
-  				 
-  					<div class="col-sm-2">
-  				    
-  				
-  				   </div>
-  				   
-  				   <div class="col-m-5">
-                     <p>Account Name</p>
-                        <input type="text" id= "account_name" name="ACCOUNT_NAME" >
-                    <hr>
-                    
-                     <p>Account Business Vertical</p>
-         				 <input type="text" id= "business_vertical" name="BUSINESS_VERTICAL" value="">
-  				     <hr>
-  				     
-  				      <p>Account Work Type</p>
-         				 <input type="text" id= "work_type" name="WORK_TYPE" value="">
-  					  <hr>
-  					  
-  					  <p>Account Image Path</p>
-  					  <input type="text" id= "image_path" name="ACCOUNT_IMAGE_PATH" value="">
-  					  <hr>
-  					  
-  					  <p>Skills Premium</p>
-  					  <input type="text" id= "skills_premium" name="SKILLS_PREMIUM" value="">
-  					  <hr>
-  					  
-  					  <p>BPO Experience</p>
-  					  <input type="text" id= "bpo_exp" name="BPO_EXP" value="">
-  					 <hr>
-  				</div>
-  				   
-  			</form>	   
-     			
+        <h5>Account Details (shown in the gallery and results)</h5>
+        <hr>
+        <form action="/updateaccount" method="post">
         
-             </div>
-        </div>
+        <!-- hidden -->
+        <div class="columnhidden" ><p>Category<span><input type="text" id= "category" name="CATEGORY"></span></p></div>
+        <div class="columnhidden" ><p>Account Id<span><input  id="account_id" name="ACCOUNT_ID" ></p></span> </p></div>
+        <!-- hidden -->
+        <p>Account Name<span><input type="text" id= "account_name" name="ACCOUNT_NAME"></span></p>
+        <p>Account Location<span><input type="text" id= "location" name="LOCATION" ></span></p>
+        <p>Line of Business<span><input type="text" id= "lob" name="LOB"></span></p>
+        <p>Business Vertical<span><input type="text" id="business_vertical" name="BUSINESS_VERTICAL"></span></p>
+        <p>Work Type<span><input type="text" id="work_type" name="WORK_TYPE"></span></p>
         
-        
-          <!-- hidden columns -->
-          
-          <textarea id= "description" name="DESCRIPTION" value=""></textarea>
-          <input type="text" id= "tm_task" name="TM_TASK" value="">
-          
-          
-          <input type="text" id= "skills" name="SKILLS" value="">
-         
-          
-          
-          <input type="text" id= "trainings" name="TRAININGS" value="">
-        
-        
-        
-        
-          
-          
-          
-          
-          
-         
-          
-        
+       <!-- hidden columns in table-->
+       <p>Image Path<span><input type="text" id="image_path" name="ACCOUNT_IMAGE_PATH" ></span></p>
+       <p>Hours of Operation<span><input type="text" id= "operating_hours" name="OPERATING_HOURS"></span></p>
+       <p>Educational Requirements<span><input type="text" id= "education" name="EDUCATION" ></span></p>
+       <p>Skills Required<span><input type="text" id="skills" name="SKILLS"></span></p>
+       <p>BPO Experience<span><input type="text" id="bpo_exp" name="BPO_EXP" ></span></p>
+       <p>Account Description<span><textarea class="form-control rounded-0"  rows="6" id= "description" name="DESCRIPTION" ></textarea></span></p>
+ 	   <p>Member Tasks<span><textarea class="form-control rounded-0"  rows="4" id= "tm_task" name="TM_TASK" ></textarea></span></p>
+       <p>Skills<span><textarea class="form-control rounded-0"  rows="4"  id= "skills" name="SKILLS" ></textarea></span></p>     
+	   <p>Trainings<span><textarea class="form-control rounded-0"  rows="6" id= "trainings" name="TRAININGS"></textarea></span></p>
+	   <button type="submit" class="btn btn-success" >Save</button>
+        </form>
+            
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

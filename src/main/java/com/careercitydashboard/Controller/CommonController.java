@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.Position;
+import com.careercitydashboard.Model.Questions;
 import com.careercitydashboard.Service.AccountService;
 import com.careercitydashboard.Service.PositionService;
+import com.careercitydashboard.Service.QuestionsService;
 
 @Controller
 public class CommonController {
@@ -25,6 +27,9 @@ public class CommonController {
 	
 	@Autowired
 	private PositionService positionService;
+	
+	@Autowired
+	private QuestionsService questionService;
 	
 	@RequestMapping("/")
 	public String index(Model model){
@@ -40,6 +45,16 @@ public class CommonController {
 		model.addAttribute("allaccounts", listofallaccounts);
 		
 		return "accounttable";
+	}
+	@RequestMapping(value="/addaccount", method=RequestMethod.POST)
+	public String addAccount(Account account) {
+		this.accountService.saveAccount(account);
+		return "redirect:/listaccount";
+	}
+	@RequestMapping(value="/updateaccount" , method=RequestMethod.POST)
+	public String updateAccount(Account account) {
+		this.accountService.saveAccount(account);
+		return "redirect:/listaccount";
 	}
 	
 	
