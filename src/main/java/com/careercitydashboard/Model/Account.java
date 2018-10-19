@@ -1,9 +1,14 @@
 package com.careercitydashboard.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -43,6 +48,19 @@ public class Account {
 	private String CATEGORY;
 	
 	private String TRAININGS;
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="ACCOUNT_ID")
+	private  List<AccountAnswers> accountAnswers;
+	
+	
+
+	public List<AccountAnswers> getAccountAnswers() {
+		return accountAnswers;
+	}
+
+	public void setAccountAnswers(List<AccountAnswers> accountAnswers) {
+		this.accountAnswers = accountAnswers;
+	}
 
 	public Integer getACCOUNT_ID() {
 		return ACCOUNT_ID;
@@ -179,7 +197,7 @@ public class Account {
 				+ ", TM_TASK=" + TM_TASK + ", EDUCATION=" + EDUCATION + ", BPO_EXP=" + BPO_EXP + ", SKILLS=" + SKILLS
 				+ ", BUSINESS_VERTICAL=" + BUSINESS_VERTICAL + ", OPERATING_HOURS=" + OPERATING_HOURS
 				+ ", SKILLS_PREMIUM=" + SKILLS_PREMIUM + ", WORK_TYPE=" + WORK_TYPE + ", CATEGORY=" + CATEGORY
-				+ ", TRAININGS=" + TRAININGS + "]";
+				+ ", TRAININGS=" + TRAININGS + ", accountAnswers=" + accountAnswers + "]";
 	}
 	
 	

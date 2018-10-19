@@ -2,6 +2,7 @@ package com.careercitydashboard.ServiceImpl;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +39,14 @@ public class AccountServiceImpl implements AccountService {
 	public Account updateAccount(Account account) {
 		// TODO Auto-generated method stub
 		return this.accountRepo.save(account);
+	}
+
+	@Override
+	public Account getAccountMapping(Integer ACCOUNT_ID) {
+		// TODO Auto-generated method stub
+		Account account= this.accountRepo.findById(ACCOUNT_ID).get();
+		Hibernate.initialize(account.getAccountAnswers().size());
+		return account;
 	}
 
 }

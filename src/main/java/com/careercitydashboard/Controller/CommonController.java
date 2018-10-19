@@ -8,13 +8,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.careercitydashboard.Model.Account;
+import com.careercitydashboard.Model.AccountAnswers;
 import com.careercitydashboard.Model.Position;
 import com.careercitydashboard.Model.Questions;
+import com.careercitydashboard.Service.AccountAnswersService;
 import com.careercitydashboard.Service.AccountService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
@@ -30,6 +34,9 @@ public class CommonController {
 	
 	@Autowired
 	private QuestionsService questionService;
+	
+	@Autowired 
+	private AccountAnswersService accountAnswersService;
 	
 	@RequestMapping("/")
 	public String index(Model model){
@@ -56,6 +63,37 @@ public class CommonController {
 		this.accountService.saveAccount(account);
 		return "redirect:/listaccount";
 	}
+	
+	/*@RequestMapping(value="/gottomappingpage")
+	public String gottoMappingpage() {
+		return "/accountmapping";
+	}
+	*/
+	
+	/*@RequestMapping(value="/editmapping" , method=RequestMethod.GET)
+	public String  getAccountMapping (@RequestParam Integer ACCOUNT_ID, Model model) {
+		System.out.println(ACCOUNT_ID);
+		Account accountmapping=this.accountService.getAccountMapping(ACCOUNT_ID);
+		System.out.println( accountmapping.toString());
+		model.addAttribute("accountmaps", accountmapping);
+		List<Questions> listofQuestions=this.questionService.getallQuestions();
+		model.addAttribute("listquestions",listofQuestions );
+		return"/accountmapping";
+	
+	
+	}*/
+	
+	@RequestMapping(value="/accountmaps/{id}", method=RequestMethod.GET)
+	public String getaccountmapbyId(@PathVariable ("id")Integer ACCOUNT_ID, Model model) {
+		System.out.println(ACCOUNT_ID);
+		Account getmapdetails = this.accountService.getAccountMapping(ACCOUNT_ID);
+		System.out.println( getmapdetails.toString() );
+		model.addAttribute("mapdetails", getmapdetails );
+		
+		return "accountmap";
+	}
+	
+	
 	
 	
 	@RequestMapping(value="/listposition" , method=RequestMethod.GET)

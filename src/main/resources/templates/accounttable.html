@@ -49,7 +49,9 @@
 	            </tr>
 	        	</thead>
 		  	<tbody >
+		  
 		       	<tr th:each="account : ${allaccounts}">
+		       	
 				      <td th:text="${account.ACCOUNT_ID}"></td>
 				      <td th:text="${account.ACCOUNT_NAME}"></td>
 				      <td th:text="${account.LOCATION}"></td>
@@ -75,9 +77,20 @@
 				   	  Edit Details</button></td>
 				   	  
 				   	  
-					  <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#editmappingmodal">
-						Edit Mapping
-						</button></td>
+					  <td>
+					  
+					 
+					  <!-- <button  class="btn btn-success"  id="editmapping1"  data-toggle="modal" data-target="#accountmapedit" >
+						View Mapping
+						</button> -->
+						
+						<form th:action="@{/accountmaps/} + ${account.ACCOUNT_ID}" method="get">
+						<button  class="btn btn-success" >
+						View Mapping
+						</button>
+						</form>
+						</td>
+						
 		      	</tr>
 		      </tbody>
 		      

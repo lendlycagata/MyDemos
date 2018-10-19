@@ -10,4 +10,5 @@ public interface AccountService {
 	public Account getaccountbyId(Integer Id);
 	public Account saveAccount(Account account);
 	public Account updateAccount(Account account);
+	public Account getAccountMapping(Integer ACCOUNT_ID);
 }

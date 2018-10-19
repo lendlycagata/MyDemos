@@ -31,7 +31,7 @@ $(document).ready( function () {
 
 
 /*TABLE EDITOR*/
-
+/*account edit*/
 $(document).ready(function(){
 	
     $('#accountTable').on('click','#editdetails1' ,function() {
@@ -85,5 +85,61 @@ $(document).ready(function(){
      });
 
 });
+
+/*account mapping*/
+$(document).ready(function(){
+	
+    $('#accountTable').on('click','#editmapping1' ,function() {
+    	
+	var currentRow=$(this).closest('tr'); 
+	
+	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+	var col2=currentRow.find('td:eq(1)').text();
+    
+   /* tester
+    var data=col1+'\n'+col2+'\n'+col3+'\n'+col4+'\n'+col5;
+    
+    alert(data);*/
+	
+	alert(col1);
+    
+    $('#editmapaccountid').val(col1);
+    $('#editmapaccountname').val(col2);
+     });
+
+});
+
+
+/*function viewmapping(accountID){
+	$.ajax({
+		url:"/accountmap/" + accountID,
+		data:{ACCOUNT_ID:accountID},
+		type:"GET",
+		beforeSend:function(){
+			$("#tableaccountmaps tbody").empty();
+		}
+	}).done(function(data){
+		
+		console.log(data);
+		
+		$.each( data.accountAnswers, function(i, accountAnswer) {
+			
+			$("#tableaccountmaps tbody").append("<tr>" +
+											"<td>" + data.account_ID + "</td>" +
+											"<td>" + accountAnswer.question.question_ID + "</td>" + 
+											"<td>" + accountAnswer.question.question + "</td>" + 
+											"<td>" + accountAnswer.answer.answer_ID + "</td>" + 
+											"<td>" + accountAnswer.answer.answer + "</td>" + 
+											"<td>" + "<button class='btn btn-danger'>Delete</button>" + "<td>"+ 
+											"</tr>");
+			
+		})
+	});
+	
+
+};
+*/
+
+
 
 /*TABLE EDITOR END*/
