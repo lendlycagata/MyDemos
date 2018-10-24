@@ -11,17 +11,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.AccountAnswers;
 import com.careercitydashboard.Model.Position;
-import com.careercitydashboard.Model.Questions;
 import com.careercitydashboard.Service.AccountAnswersService;
 import com.careercitydashboard.Service.AccountService;
+import com.careercitydashboard.Service.AnswerService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
+
+
+
+
 
 @Controller
 public class CommonController {
@@ -37,6 +39,9 @@ public class CommonController {
 	
 	@Autowired 
 	private AccountAnswersService accountAnswersService;
+	
+	@Autowired
+	private AnswerService answerService;
 	
 	@RequestMapping("/")
 	public String index(Model model){
@@ -64,25 +69,7 @@ public class CommonController {
 		return "redirect:/listaccount";
 	}
 	
-	/*@RequestMapping(value="/gottomappingpage")
-	public String gottoMappingpage() {
-		return "/accountmapping";
-	}
-	*/
-	
-	/*@RequestMapping(value="/editmapping" , method=RequestMethod.GET)
-	public String  getAccountMapping (@RequestParam Integer ACCOUNT_ID, Model model) {
-		System.out.println(ACCOUNT_ID);
-		Account accountmapping=this.accountService.getAccountMapping(ACCOUNT_ID);
-		System.out.println( accountmapping.toString());
-		model.addAttribute("accountmaps", accountmapping);
-		List<Questions> listofQuestions=this.questionService.getallQuestions();
-		model.addAttribute("listquestions",listofQuestions );
-		return"/accountmapping";
-	
-	
-	}*/
-	
+
 	@RequestMapping(value="/accountmaps/{id}", method=RequestMethod.GET)
 	public String getaccountmapbyId(@PathVariable ("id")Integer ACCOUNT_ID, Model model) {
 		System.out.println(ACCOUNT_ID);
@@ -90,10 +77,14 @@ public class CommonController {
 		System.out.println( getmapdetails.toString() );
 		model.addAttribute("mapdetails", getmapdetails );
 		
-		return "accountmap";
+		return "accountmap" ;
 	}
-	
-	
+	@RequestMapping(value="/addaccountanswers", method=RequestMethod.POST)
+	public String addAccountMapping(AccountAnswers accountAnswers) {
+		this.accountAnswersService.addAccountAnswers(accountAnswers);
+		System.out.println(accountAnswers.toString());
+		return "redirect:/accountmaps/" + accountAnswers.getACCOUNT_ID();
+	}
 	
 	
 	@RequestMapping(value="/listposition" , method=RequestMethod.GET)

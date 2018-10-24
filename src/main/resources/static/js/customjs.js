@@ -87,24 +87,48 @@ $(document).ready(function(){
 });
 
 /*account mapping*/
+
 $(document).ready(function(){
 	
-    $('#accountTable').on('click','#editmapping1' ,function() {
+    $('#tableaccountmaps').on('click','#editmapping1' ,function() {
     	
 	var currentRow=$(this).closest('tr'); 
 	
 	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
 	var col2=currentRow.find('td:eq(1)').text();
+	var col3=currentRow.find('td:eq(2)').text();
+	var col4=currentRow.find('td:eq(3)').text();
     
    /* tester
     var data=col1+'\n'+col2+'\n'+col3+'\n'+col4+'\n'+col5;
     
     alert(data);*/
-	
-	alert(col1);
+	/*
+	alert(col1);*/
     
-    $('#editmapaccountid').val(col1);
-    $('#editmapaccountname').val(col2);
+    $('#accountmapquestionid').val(col1);
+    $('#acountmapquestion').val(col2);
+    $('#accountmapanswerid').val(col3);
+     $('#accountmapanswer').val(col4);
+     });
+
+});
+
+
+$(document).ready(function(){
+	
+    $('#tableaccountmaps').on('click','#addmapbtn' ,function() {
+    	
+	var currentRow=$(this).closest('tr'); 
+	
+	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+	
+	
+    
+   
+    
+    $('#accountmappingid').val(col1);
+    
      });
 
 });
@@ -139,6 +163,7 @@ $(document).ready(function(){
 
 };
 */
+
 
 
 

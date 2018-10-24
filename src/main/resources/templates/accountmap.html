@@ -6,22 +6,51 @@
 <title>Career City Admin Dashboard</title>
 <div th:replace="fragments/headplugs"> </div>
 
+
+
+ 
+ </head>
+ 
 <body>
 
-	<table class="table" id="tableaccountmaps">
+<a th:href="@{'/listaccount'}">Back to Account List</a>
+	<table class="table table-striped"  id="tableaccountmaps">
+	
+	<thead>
+		<tr>
+			<td><h6>Account Id</h6></td>
+			<td><h6>Account Name</h6></td>		
+		</tr>
+	</thead>
     
-    <tbody>
+    <tbody >
     
     	<tr>
-    		<td th:text="${mapdetails.ACCOUNT_ID}"></td>
-    		<td th:text="${mapdetails.ACCOUNT_NAME }"></td>
+    		 <td th:text="${mapdetails.ACCOUNT_ID}"><</td>
+    		 <td th:text="${mapdetails.ACCOUNT_NAME }"></td>
+    		<td><button  class="btn btn-info"  data-toggle="modal" data-target="#addaccountmapmodal" id="addmapbtn">Add Mapping</button></td>
+    		</tr>
+    		<thead>
+    			<tr>
+  					<td><h6>Question Id</h6></td>
+  					<td><h6>Question</h6></td>
+  					<td><h6>Answer Id</h6></td>
+  					<td><h6>Answer</h6></td>  			
+    			</tr>
+      		</thead>
+    		
+    		
+    		
     		<tr th:each="questionmaps : ${mapdetails.accountAnswers}">
     			<td th:text="${questionmaps.question.QUESTION_ID}"></td>
     			<td th:text="${questionmaps.question.QUESTION}"></td>
     			<td th:text="${questionmaps.answer.ANSWER_ID}"></td>
     			<td th:text="${questionmaps.answer.ANSWER}"></td>
+    			<td><button type="button" class="btn btn-primary m-2" id="editmapping1" data-toggle="modal" data-target="#editmapping" > edit </button>
+    			<span><button class="btn btn-danger">delete</button></span>
+    			</td>
     		</tr>
-    	</tr>
+    	
      
     </tbody>
   </table>
@@ -30,8 +59,8 @@
 
 
 
-
- 
+  <div th:replace="fragments/modals/addaccountmap"></div>
+  <div th:replace="fragments/modals/editaccountmap"></div>
   <div th:replace="fragments/footplugs"> </div>
 </body>
 </html>

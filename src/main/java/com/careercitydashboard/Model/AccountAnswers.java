@@ -18,6 +18,16 @@ public class AccountAnswers {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer QUESTION_ANSWER_ID;
 	
+	private Integer ACCOUNT_ID;
+	
+	public Integer getACCOUNT_ID() {
+		return ACCOUNT_ID;
+	}
+
+	public void setACCOUNT_ID(Integer aCCOUNT_ID) {
+		ACCOUNT_ID = aCCOUNT_ID;
+	}
+
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="QUESTION_ID")
 	private Questions question;
@@ -55,8 +65,8 @@ public class AccountAnswers {
 
 	@Override
 	public String toString() {
-		return "AccountAnswers [QUESTION_ANSWER_ID=" + QUESTION_ANSWER_ID + ", question=" + question + ", answer="
-				+ answer + "]";
+		return "AccountAnswers [QUESTION_ANSWER_ID=" + QUESTION_ANSWER_ID + ", ACCOUNT_ID=" + ACCOUNT_ID + ", question="
+				+ question + ", answer=" + answer + "]";
 	}
 
 	
