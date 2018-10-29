@@ -42,6 +42,12 @@ public class AccountAnswersServiceImpl implements AccountAnswersService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public AccountAnswers  deleteMapping(Integer QUESTION_ANSWER_ID) {
+		this.accountAnswersRepo.deleteById(QUESTION_ANSWER_ID);
+		return null;
+		
+	}
 	
 
 }

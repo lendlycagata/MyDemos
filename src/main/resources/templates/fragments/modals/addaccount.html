@@ -13,7 +13,7 @@
         <div class="modal-body">
         <h5>Account Details (shown in the gallery and results)</h5>
         <hr>
-        <form action="/addaccount" method="post">
+        <form th:action="@{/addaccount}" method="post">
         
         <!-- hidden -->
          <div class="columnhidden" ><p>Category<span><input type="text" id= "category1" name="CATEGORY" value="CC"></span></p></div>
@@ -52,27 +52,3 @@
 
 
 
-<div class="container">
-  
- 
-  <div class="modal fade" id="editmappingmodal" role="dialog">
-    <div class="modal-dialog">
-    
-      Modal content
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is edit mapping modal</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>

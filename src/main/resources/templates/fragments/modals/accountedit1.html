@@ -13,7 +13,7 @@
         <div class="modal-body">
         <h5>Account Details (shown in the gallery and results)</h5>
         <hr>
-        <form action="/updateaccount" method="post">
+        <form th:action="@{/updateaccount}" method="post">
         
         <!-- hidden -->
         <div class="columnhidden" ><p>Category<span><input type="text" id="category" name="CATEGORY"></span></p></div>
@@ -26,7 +26,7 @@
         <p>Work Type<span><input type="text" id="work_type" name="WORK_TYPE"></span></p>
         
        <!-- hidden columns in table-->
-       <p>Image Path<span><input type="text" id="image_path" name="ACCOUNT_IMAGE_PATH" ></span></p>
+       <p>Image Path<span><input type="text" id="image_path" name="ACCOUNT_IMAGE_PATH" ></span><span><a th:href="@{/uploadpage}">Upload Image</a> </span></p>
        <p>Hours of Operation<span><input type="text" id= "operating_hours" name="OPERATING_HOURS"></span></p>
        <p>Educational Requirements<span><input type="text" id= "education" name="EDUCATION" ></span></p>
        <p>Skills Required<span><input type="text" id="skills" name="SKILLS"></span></p>

@@ -32,9 +32,9 @@
     		</tr>
     		<thead>
     			<tr>
-  					<td><h6>Question Id</h6></td>
+  					<td class="columnhidden"><h6>Question Id</h6></td>
   					<td><h6>Question</h6></td>
-  					<td><h6>Answer Id</h6></td>
+  					<td class="columnhidden"><h6>Answer Id</h6></td>
   					<td><h6>Answer</h6></td>  			
     			</tr>
       		</thead>
@@ -42,12 +42,18 @@
     		
     		
     		<tr th:each="questionmaps : ${mapdetails.accountAnswers}">
-    			<td th:text="${questionmaps.question.QUESTION_ID}"></td>
+    			<td class="columnhidden" th:text="${questionmaps.QUESTION_ANSWER_ID}"> </td>
+    			<td class="columnhidden" th:text="${questionmaps.question.QUESTION_ID}"></td>
     			<td th:text="${questionmaps.question.QUESTION}"></td>
-    			<td th:text="${questionmaps.answer.ANSWER_ID}"></td>
+    			<td class="columnhidden" th:text="${questionmaps.answer.ANSWER_ID}"></td>
     			<td th:text="${questionmaps.answer.ANSWER}"></td>
-    			<td><button type="button" class="btn btn-primary m-2" id="editmapping1" data-toggle="modal" data-target="#editmapping" > edit </button>
-    			<span><button class="btn btn-danger">delete</button></span>
+    			<td>
+    			<form th:action="@{/deleteaccountmap}" method="post">
+    			<input type="hidden" name="ACCOUNT_ID" th:value="${mapdetails.ACCOUNT_ID}">
+    			<input type="hidden" name="QUESTION_ANSWER_ID" th:value="${questionmaps.QUESTION_ANSWER_ID}">
+    			<button class="btn btn-danger">delete</button>
+    			</form>
+    			
     			</td>
     		</tr>
     	

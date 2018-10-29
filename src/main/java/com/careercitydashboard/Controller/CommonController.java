@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.AccountAnswers;
@@ -86,6 +87,12 @@ public class CommonController {
 		return "redirect:/accountmaps/" + accountAnswers.getACCOUNT_ID();
 	}
 	
+	@RequestMapping(value="/deleteaccountmap" , method=RequestMethod.POST)
+	public String deleteAccountMapping(@RequestParam  Integer QUESTION_ANSWER_ID , @RequestParam Integer ACCOUNT_ID  ) {
+		System.out.println(QUESTION_ANSWER_ID);
+		this.accountAnswersService.deleteMapping(QUESTION_ANSWER_ID);
+		 return "redirect:/accountmaps/" + ACCOUNT_ID; 
+	}
 	
 	@RequestMapping(value="/listposition" , method=RequestMethod.GET)
 	public String listofallPositions(Model model) throws IOException{
@@ -93,6 +100,7 @@ public class CommonController {
 		model.addAttribute("allpositions", listofallpositions);
 		return "positiontable";
 	}
+	
 	
 	
 	
