@@ -1,17 +1,23 @@
 <h4  th:text="${welcome}"></h4></br>
       <div>
-        <form action="/" >
+        <form th:action="@{/}" >
          <button type="submit" class="btn btn-warning"> Home </button></br>
          </form>
          <hr>
-         <form action="/listaccount" method="GET">
+         <form th:action="@{/listaccount}" method="GET">
          <button type="submit" class="btn btn-warning"> Accounts </button></br>
          </form>
         
          
          <hr>
-         <form action="/listposition" method="GET">
+         <form th:action="@{/listposition}" method="GET">
          <button type="submit" class="btn btn-warning"> Positions </button></br>
+         </form>
+         <hr>
+         
+         
+         <form th:action="@{/logout}" >
+         <button type="submit" class="btn btn-danger"> Log Out </button></br>
          </form>
          <hr>
          

@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div id="addposition" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+	      <form th:action="@{/addposition}" method="post">
+			      <p>Position<span><input type="text" name="JOB_PROFILE"></span></p>
+			         <div>
+			             <p>Category<span><select name="CATEGORY" >
+							  <option value="DS">Digital Services</option>
+							  <option value="ST">Support Role</option>
+						   </select></span></p> 
+				     </div>
+				     
+				  <p>Department<span><input type="text" name="DEPARTMENT"/></span></p>
+				     
+				     <hr>
+		     	  <input type="submit" value="Save" class="btn btn-success">	
+		   </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

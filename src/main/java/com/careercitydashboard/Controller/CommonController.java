@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,8 +48,10 @@ public class CommonController {
 	@RequestMapping("/")
 	public String index(Model model){
 		model.addAttribute("welcome", "Career City Admin Dashboard");
-		return "index";
+		return "redirect:/login";
 	}
+	
+	   
 	
 	@RequestMapping(value="/listaccount", method=RequestMethod.GET)
 	
@@ -100,9 +103,16 @@ public class CommonController {
 		model.addAttribute("allpositions", listofallpositions);
 		return "positiontable";
 	}
-	
-	
-	
+	@RequestMapping(value="/updateposition", method=RequestMethod.POST)
+	public String updatePosition(Position position) {
+		 this.positionService.updatePosition(position);
+		 return "redirect:/listposition";
+	}
+	@RequestMapping(value="/addposition", method=RequestMethod.POST)
+	public String addPosition(Position position) {
+		this.positionService.savePosition(position);
+		return "redirect:/listposition";
+	}
 	
 	
 }

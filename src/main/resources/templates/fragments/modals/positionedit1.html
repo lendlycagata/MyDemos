@@ -1,0 +1,35 @@
+<!-- Modal -->
+<div id="positiondetails" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Digital Service and Support View</h4>
+      </div>
+      <div class="modal-body">
+      <form th:action="@{/updateposition}" method="post">
+        <p>Position Id<span><input type="number" id="positionid" name="POSITION_ID"></span></p>
+        <p>Job Profile<span><input type="text" id="jobprofile" name="JOB_PROFILE"></span></p>
+        <p>Department<span><input type="text" id="department" name="DEPARTMENT"></span></p>
+        <p>Image Path<span><input type="text" id="imagepath" name="IMAGE_PATH"></span></p>
+        <p>Support Type<span><input type="text" id="supporttype" name="SUPPORT_TYPE"></span></p>
+        <p>Category<span><input type="text" id="category" name="CATEGORY"></span></p>
+        <p>Certification<span><input type="text" id="certification" name="CERTIFICATION"></span></p>
+        <p>Educational Background<span><input type="text" id="educationalback" name="EDUCATIONAL_BACKGROUND"></span></p>
+        <p>Experience Required<span><input type="text" id="expreq" name="EXPERIENCE_REQUIRED"></span></p>
+        <p>Description<span><textarea class="form-control rounded-0"  rows="6" id="description" name="DESCRIPTION" ></textarea></span></p>
+        <p>Skills Required<span><textarea class="form-control rounded-0"  rows="4"  id="skillsreq" name="SKILLS_REQUIRED" ></textarea></span></p>
+        <p>Other Skills<span><textarea class="form-control rounded-0"  rows="4"  id="otherskills" name="OTHER_SKILLS" ></textarea></span></p>
+        <p>Trainings<span><textarea class="form-control rounded-0"  rows="6" id="trainings" name="TRAININGS"></textarea></span></p>
+        <input type="submit" class="btn btn-success" value="Save">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
