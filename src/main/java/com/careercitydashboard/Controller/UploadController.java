@@ -18,10 +18,10 @@ public class UploadController {
 	
 	
 	/*localpath*/
-	/*private static String UPLOADER_FOLDER = "C://things//";*/
+	private static String UPLOADER_FOLDER = "C://things//";
 	
 	/*serverpath-dev*/
-	private static String UPLOADER_FOLDER = "//opt/tomcat/webapps/ImageRepo//";
+	/*private static String UPLOADER_FOLDER = "//opt/tomcat/webapps/ImageRepo//";*/
 	
 	@GetMapping("/uploadpage")
 	public String gotouploadpage() {
@@ -41,7 +41,7 @@ public class UploadController {
 			Files.write(path, bytes);
 			
 			redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+                    "https://35.185.222.6/ImageRepo/" + file.getOriginalFilename() + "");
 			
 		}catch(IOException e){
 			e.printStackTrace();

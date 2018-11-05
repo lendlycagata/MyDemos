@@ -1,9 +1,14 @@
 package com.careercitydashboard.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +42,12 @@ public class Position {
 	private String IMAGE_PATH;
 	
 	private String TRAININGS;
+	
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="POSITION_ID")
+	private List<PositionAnswers> positionAnswers;
+	
+	
 
 	public Integer getPOSITION_ID() {
 		return POSITION_ID;
@@ -141,6 +152,16 @@ public class Position {
 	public void setTRAININGS(String tRAININGS) {
 		TRAININGS = tRAININGS;
 	}
+	
+	
+
+	public List<PositionAnswers> getPositionAnswers() {
+		return positionAnswers;
+	}
+
+	public void setPositionAnswers(List<PositionAnswers> positionAnswers) {
+		this.positionAnswers = positionAnswers;
+	}
 
 	@Override
 	public String toString() {
@@ -148,7 +169,8 @@ public class Position {
 				+ ", JOB_PROFILE=" + JOB_PROFILE + ", DESCRIPTION=" + DESCRIPTION + ", CERTIFICATION=" + CERTIFICATION
 				+ ", EDUCATIONAL_BACKGROUND=" + EDUCATIONAL_BACKGROUND + ", EXPERIENCE_REQUIRED=" + EXPERIENCE_REQUIRED
 				+ ", SKILLS_REQUIRED=" + SKILLS_REQUIRED + ", OTHER_SKILLS=" + OTHER_SKILLS + ", CATEGORY=" + CATEGORY
-				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + "]";
+				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", positionAnswers=" + positionAnswers
+				+ "]";
 	}
 	
 	

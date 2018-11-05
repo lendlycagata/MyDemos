@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.AccountAnswers;
 import com.careercitydashboard.Model.Position;
+import com.careercitydashboard.Model.PositionAnswers;
 import com.careercitydashboard.Service.AccountAnswersService;
 import com.careercitydashboard.Service.AccountService;
 import com.careercitydashboard.Service.AnswerService;
+import com.careercitydashboard.Service.PositionAnswerService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
 
@@ -44,6 +46,9 @@ public class CommonController {
 	
 	@Autowired
 	private AnswerService answerService;
+	
+	@Autowired
+	private PositionAnswerService positionAnswerService;
 	
 	@RequestMapping("/")
 	public String index(Model model){
@@ -113,6 +118,15 @@ public class CommonController {
 		this.positionService.savePosition(position);
 		return "redirect:/listposition";
 	}
-	
+	@RequestMapping(value="/positionmaps/{id}", method=RequestMethod.GET)
+	public String getPositionMapById(@PathVariable ("id") Integer POSITION_ID, Model model) {
+		System.out.println(POSITION_ID);
+		Position getPositionMapDetails = this.positionService.getPositionMapping(POSITION_ID);
+		System.out.println(getPositionMapDetails.toString());
+		model.addAttribute("positionmaps",getPositionMapDetails );
+		
+		return "positionmaps";
+		
+	}
 	
 }
