@@ -123,13 +123,73 @@ $(document).ready(function(){
 	
 	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
 	
-	
-    
-   
-    
     $('#accountmappingid').val(col1);
     
      });
+
+});
+
+/*position mapping*/
+
+$(document).ready(function(){
+	
+    $('#tablepositionmaps').on('click','#editmapping1' ,function() {
+    	
+	var currentRow=$(this).closest('tr'); 
+	
+	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+	var col2=currentRow.find('td:eq(1)').text();
+	var col3=currentRow.find('td:eq(2)').text();
+	var col4=currentRow.find('td:eq(3)').text();
+    
+   /* tester
+    var data=col1+'\n'+col2+'\n'+col3+'\n'+col4+'\n'+col5;
+    
+    alert(data);*/
+	/*
+	alert(col1);*/
+    
+    $('#positionmapquestionid').val(col1);
+    $('#acountmapquestion').val(col2);
+    $('#accountmapanswerid').val(col3);
+     $('#accountmapanswer').val(col4);
+     });
+
+});
+
+
+$(document).ready(function(){
+	
+	$("select[name='questions'").change(function(){
+		var selectedValue = $(this).children("option:selected").val();
+		
+		var DSData = {10:"Application Support",
+					  11:"Change Management",
+					  12:"Database Management",
+					  13:"Development / Application Support",
+					  14:"Business Continuity Planning",
+					  15:"IT Audit",
+					  16:"JAVA Development",
+					  17:"Production Server Support",
+					  18:"Project Management"};
+		
+		var STData = {19:"Facilities",
+					  20:"Customer Experience",
+					  21:"Human Resources",
+					  22:"Learning Services/Learning & Dev't",
+					  23:"Workforce Management"};
+		if(selectedValue == 3){
+			$("select[name='answer'").empty();
+			$.each(DSData, function(key,str){
+				$("select[name='answer'").append($("<option></option>").attr("value", key).text(str));
+			});
+		}else{
+			$("select[name='answer'").empty();
+			$.each(STData, function(key,str){
+				$("select[name='answer'").append($("<option></option>").attr("value", key).text(str));
+			});
+		}
+	});
 
 });
 
@@ -209,8 +269,8 @@ $(document).ready(function(){
     $('#educationalback').val(col8);
     $('#expreq').val(col9);
     $('#description').val(col6);
-    $('#skillsreq').val(col11);
-    $('#otherskills').val(col10);
+    $('#skillsreq').val(col10);
+    $('#otherskills').val(col11);
     $('#trainings').val(col13);
 
     });

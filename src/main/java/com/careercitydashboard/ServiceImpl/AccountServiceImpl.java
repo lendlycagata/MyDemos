@@ -26,19 +26,31 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account getaccountbyId(Integer Id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.accountRepo.findById(Id).get();
 	}
 
 	@Override
-	public Account saveAccount(Account account) {
-		// TODO Auto-generated method stub
-		return this.accountRepo.save(account);
+	public void saveAccount(Account account) {
+		this.accountRepo.save(account);
 	}
 
 	@Override
-	public Account updateAccount(Account account) {
-		// TODO Auto-generated method stub
-		return this.accountRepo.save(account);
+	public void updateAccount(Account account) {
+		Account saveAccount = getaccountbyId(account.getACCOUNT_ID());
+		saveAccount.setACCOUNT_NAME(account.getACCOUNT_NAME());
+		saveAccount.setLOCATION(account.getLOCATION());
+		saveAccount.setLOB(account.getLOB());
+		saveAccount.setBUSINESS_VERTICAL(account.getBUSINESS_VERTICAL());
+		saveAccount.setWORK_TYPE(account.getWORK_TYPE());
+		saveAccount.setACCOUNT_IMAGE_PATH(account.getACCOUNT_IMAGE_PATH());
+		saveAccount.setOPERATING_HOURS(account.getOPERATING_HOURS());
+		saveAccount.setEDUCATION(account.getEDUCATION());
+		saveAccount.setSKILLS(account.getSKILLS());
+		saveAccount.setBPO_EXP(account.getBPO_EXP());
+		saveAccount.setDESCRIPTION(account.getDESCRIPTION());
+		saveAccount.setTM_TASK(account.getTM_TASK());
+		saveAccount.setTRAININGS(account.getTRAININGS());
+		this.accountRepo.save(saveAccount);
 	}
 
 	@Override

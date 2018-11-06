@@ -28,8 +28,7 @@ public class PositionServiceImpl implements PositionService {
 	@Override
 	public Position getpositonbyId(Integer Id) {
 		
-		this.positionRepo.findById(Id);
-		return null;
+		return this.positionRepo.findById(Id).get();
 	}
 
 	@Override
@@ -40,8 +39,20 @@ public class PositionServiceImpl implements PositionService {
 
 	@Override
 	public Position updatePosition(Position position) {
+		Position updatedPosition = getpositonbyId(position.getPOSITION_ID());
+		updatedPosition.setJOB_PROFILE(position.getJOB_PROFILE());
+		updatedPosition.setDEPARTMENT(position.getDEPARTMENT());
+		updatedPosition.setIMAGE_PATH(position.getIMAGE_PATH());
+		updatedPosition.setSUPPORT_TYPE(position.getSUPPORT_TYPE());
+		updatedPosition.setEDUCATIONAL_BACKGROUND(position.getEDUCATIONAL_BACKGROUND());
+		updatedPosition.setEXPERIENCE_REQUIRED(position.getEXPERIENCE_REQUIRED());
+		updatedPosition.setDESCRIPTION(position.getDESCRIPTION());
+		updatedPosition.setSKILLS_REQUIRED(position.getSKILLS_REQUIRED());
+		updatedPosition.setCERTIFICATION(position.getCERTIFICATION());
+		updatedPosition.setOTHER_SKILLS(position.getOTHER_SKILLS());
+		updatedPosition.setTRAININGS(position.getTRAININGS());
 		// TODO Auto-generated method stub
-		return this.positionRepo.save(position);
+		return this.positionRepo.save(updatedPosition);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public interface AccountService {
 	
 	public List<Account> getallAccounts();
 	public Account getaccountbyId(Integer Id);
-	public Account saveAccount(Account account);
-	public Account updateAccount(Account account);
+	public void saveAccount(Account account);
+	public void updateAccount(Account account);
 	public Account getAccountMapping(Integer ACCOUNT_ID);
 }

@@ -74,7 +74,7 @@ public class CommonController {
 	}
 	@RequestMapping(value="/updateaccount" , method=RequestMethod.POST)
 	public String updateAccount(Account account) {
-		this.accountService.saveAccount(account);
+		this.accountService.updateAccount(account);
 		return "redirect:/listaccount";
 	}
 	
@@ -110,7 +110,7 @@ public class CommonController {
 	}
 	@RequestMapping(value="/updateposition", method=RequestMethod.POST)
 	public String updatePosition(Position position) {
-		 this.positionService.updatePosition(position);
+		 this.positionService.updatePosition(position);		
 		 return "redirect:/listposition";
 	}
 	@RequestMapping(value="/addposition", method=RequestMethod.POST)
@@ -120,13 +120,27 @@ public class CommonController {
 	}
 	@RequestMapping(value="/positionmaps/{id}", method=RequestMethod.GET)
 	public String getPositionMapById(@PathVariable ("id") Integer POSITION_ID, Model model) {
-		System.out.println(POSITION_ID);
+//		System.out.println(POSITION_ID);
 		Position getPositionMapDetails = this.positionService.getPositionMapping(POSITION_ID);
-		System.out.println(getPositionMapDetails.toString());
+//		System.out.println(getPositionMapDetails.toString());
 		model.addAttribute("positionmaps",getPositionMapDetails );
 		
 		return "positionmaps";
 		
+	}
+	
+	@RequestMapping(value="/addpositionanswers", method=RequestMethod.POST)
+	public String addPositionMapping(PositionAnswers positionAnswers) {
+		System.out.println(positionAnswers);
+		this.positionAnswerService.addPositionAnswers(positionAnswers);
+		
+		return "redirect:/positionmaps/" + positionAnswers.getPOSITION_ID();
+	}
+	
+	@RequestMapping(value="/deletepositionmap" , method=RequestMethod.POST)
+	public String deletePositionMapping(@RequestParam  Integer QUESTION_ANSWER_ID , @RequestParam Integer POSITION_ID) {
+		this.positionAnswerService.deletePositionMapping(QUESTION_ANSWER_ID);
+		return "redirect:/positionmaps/" + POSITION_ID; 
 	}
 	
 }
