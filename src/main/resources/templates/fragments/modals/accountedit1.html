@@ -15,8 +15,10 @@
         <hr>
         <form th:action="@{/updateaccount}" method="post">
         
+        <h6>Delete Value to disable Account</h6>
+        <div><p>Category<span><input type="text" id="category" name="CATEGORY"></span></p></div>
+        <hr>
         <!-- hidden -->
-        <div class="columnhidden" ><p>Category<span><input type="text" id="category" name="CATEGORY"></span></p></div>
         <div class="columnhidden" ><p>Account Id<span><input type="number"  id="account_id" name="ACCOUNT_ID" ></p></span> </p></div>
         <!-- hidden -->
         <p>Account Name<span><input type="text" id= "account_name" name="ACCOUNT_NAME"></span></p>

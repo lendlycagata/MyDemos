@@ -2,6 +2,7 @@ package com.careercitydashboard.ServiceImpl;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +21,7 @@ public class PositionServiceImpl implements PositionService {
 
 	@Override
 	public List<Position> getallPositions() {
-		return this.positionRepo.findAll();
+		return (List<Position>) this.positionRepo.findAll();
 		
 	}
 
@@ -41,6 +42,14 @@ public class PositionServiceImpl implements PositionService {
 	public Position updatePosition(Position position) {
 		// TODO Auto-generated method stub
 		return this.positionRepo.save(position);
+	}
+
+	@Override
+	public Position getPositionMapping(Integer POSITION_ID) {
+		// TODO Auto-generated method stub
+		Position position=this.positionRepo.findById(POSITION_ID).get();
+		Hibernate.initialize(position.getPositionAnswers().size());
+		return position;
 	}
 
 }

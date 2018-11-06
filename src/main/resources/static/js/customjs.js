@@ -168,3 +168,54 @@ $(document).ready(function(){
 
 
 /*TABLE EDITOR END*/
+
+
+/*POSITION NON AGENT SECTION*/
+
+$(document).ready( function () {
+    $('#positiontable').DataTable();
+} );
+
+
+$(document).ready(function(){
+	
+    $('#positiontable').on('click','#editpositiondetails' ,function() {
+	var currentRow=$(this).closest('tr'); 
+	
+	var col1=currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+    var col2=currentRow.find('td:eq(1)').text();
+    var col3=currentRow.find('td:eq(2)').text();
+    var col4=currentRow.find('td:eq(3)').text();
+    var col5=currentRow.find('td:eq(4)').text();
+    var col6=currentRow.find('td:eq(5)').text();
+    
+    /*  hidden columns*/
+    var col7=currentRow.find('td:eq(6)').text();
+    var col8=currentRow.find('td:eq(7)').text();
+    var col9=currentRow.find('td:eq(8)').text();
+    var col10=currentRow.find('td:eq(9)').text();
+    var col11=currentRow.find('td:eq(10)').text();
+    var col12=currentRow.find('td:eq(11)').text();
+    var col13=currentRow.find('td:eq(12)').text();
+    
+    
+    $('#positionid').val(col1);
+    $('#jobprofile').val(col2);
+    $('#department').val(col3);
+    $('#imagepath').val(col4);
+    $('#supporttype').val(col5);
+    $('#category').val(col12);
+    $('#certification').val(col7);
+    $('#educationalback').val(col8);
+    $('#expreq').val(col9);
+    $('#description').val(col6);
+    $('#skillsreq').val(col11);
+    $('#otherskills').val(col10);
+    $('#trainings').val(col13);
+
+    });
+
+});
+
+
+

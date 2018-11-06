@@ -14,6 +14,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UploadController {
+	
+	
+	
 	/*localpath*/
 	private static String UPLOADER_FOLDER = "C://things//";
 	
@@ -38,7 +41,7 @@ public class UploadController {
 			Files.write(path, bytes);
 			
 			redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded '" + file.getOriginalFilename() + "'");
+                    "https://35.185.222.6/ImageRepo/" + file.getOriginalFilename() + "");
 			
 		}catch(IOException e){
 			e.printStackTrace();

@@ -11,4 +11,6 @@ public interface PositionService {
 	public Position savePosition(Position position);
 	public Position updatePosition(Position position);
 	
+	public Position getPositionMapping(Integer POSITION_ID);
+	
 }
