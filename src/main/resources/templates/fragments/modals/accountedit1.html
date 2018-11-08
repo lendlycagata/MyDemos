@@ -5,7 +5,7 @@
 		<div class="modal-dialog modal-lg">
 
 			<div class="modal-content">
-				<form th:action="@{/updateaccount}" method="post">
+				<form th:action="@{/updateaccount}" method="post" enctype="multipart/form-data">
 					<div class="modal-header">
 						<div class="modal-title">
 							<h3>ACCOUNT DETAILS</h3>
@@ -20,7 +20,8 @@
 						<div class="form-group row">
 							<label class="col-md-2 font-weight-bold text-right">Category</label>
 							<div class="col-md-5">
-								<input class="form-control" type="text" id="category" name="CATEGORY">
+								<input class="form-control" type="text" id="category"
+									name="CATEGORY">
 							</div>
 						</div>
 						<hr>
@@ -91,15 +92,20 @@
 						<!-- hidden columns in table-->
 						<!-- Row #4 -->
 						<div class="form-group row">
-							<label class="col-md-2 text-right font-weight-bold">
-								Image Path</label>
-							<div class="col-md-8">
-								<input class="form-control" type="text" id="image_path"
-									name="ACCOUNT_IMAGE_PATH">
+							<div class="col-md-2 card">
+								<div class="card-body">
+									<label class="text-right font-weight-bold">Image Path</label>
+								</div>
+								<img class="card-img-top" id="accountImagePath">
 							</div>
-							<div class="col-md-2 text-right">
-								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload
-									Image</a>
+							<div class="col-md-5">
+								<input class="form-control" type="text" id="image_path"
+									name="ACCOUNT_IMAGE_PATH" readonly="readonly">
+							</div>
+							<div class="col-md-5 text-right">
+								<input id="uploadImageFile" type="file" name="file">
+<!-- 								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload -->
+<!-- 									Image</a> -->
 							</div>
 						</div>
 
@@ -139,9 +145,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="col col-md-6">
-							</div>
-							
+							<div class="col col-md-6"></div>
+
 						</div>
 
 						<!-- Row #7 -->

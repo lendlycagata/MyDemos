@@ -4,7 +4,7 @@
 
 		<!-- Modal content-->
 		<div class="modal-content">
-			<form th:action="@{/updateposition}" method="post">
+			<form th:action="@{/updateposition}" method="post"  enctype="multipart/form-data">
 				<div class="modal-header">
 					<div class="modal-title">
 						<h3>DIGITAL SERVICE & SUPPORT DETAILS</h3>
@@ -55,15 +55,21 @@
 
 					<!-- Row #2 -->
 					<div class="form-group row">
-						<label class="col-md-2 font-weight-bold text-right">Image
-							Path</label>
-						<div class="col-md-8">
+						<div class="col-md-2">
+							<div class="card-body">
+								<label class="text-right font-weight-bold">Image Path</label>
+							</div>
+							<img class="card-img-top" id="positionImagePath">
+						</div>
+						
+						<div class="col-md-5">
 							<input class="form-control" type="text" id="imagepath"
 								name="IMAGE_PATH">
 						</div>
-						<div class="col-md-2 text-right">
-							<a class="btn btn-primary" th:href="@{/uploadpage}">Upload
-								Image</a>
+						<div class="col-md-5 text-right">
+							<input id="uploadImageFile" type="file" name="file">
+<!-- 								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload -->
+<!-- 									Image</a> -->
 						</div>
 					</div>
 
