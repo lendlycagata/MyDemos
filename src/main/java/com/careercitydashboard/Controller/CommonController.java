@@ -74,7 +74,7 @@ public class CommonController {
 	}
 	@RequestMapping(value="/updateaccount" , method=RequestMethod.POST)
 	public String updateAccount(Account account) {
-		this.accountService.saveAccount(account);
+		this.accountService.updateAccount(account);
 		return "redirect:/listaccount";
 	}
 	
