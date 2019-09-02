@@ -3,7 +3,7 @@
   
 
   <div class="modal fade" id="editdetails" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     
       
       <div class="modal-content">
@@ -14,7 +14,7 @@
         <div class="modal-body">
         <h5>Account Details (shown in the gallery and results)</h5>
         <hr>
-        <form th:action="@{/updateaccount}" method="post">
+        <form th:action="@{/updateaccount}" method="post" enctype="multipart/form-data">
         
         <h6>Delete Value to disable Account</h6>
         <div><p>Category<span><input type="text" id="category" name="CATEGORY"></span></p></div>
@@ -30,7 +30,19 @@
         <p>Job Requisition Link<span><input type="text" id="job_req" name="JOB_REQ"></span></p>
         
        <!-- hidden columns in table-->
-       <p>Image Path<span><input type="text" id="image_path" name="ACCOUNT_IMAGE_PATH" ></span></p>
+       <p>Image Path
+       <div class="form-row">
+     		<div class="col-md-2">
+     			<img class="image-hero" alt="" width="auto" height="100px">
+     				
+     		</div>
+      		<div class="col-md-10">
+      			<input class="form-control" type="text" id="image_path" name="ACCOUNT_IMAGE_PATH" >
+      	
+				<input type="file" name="file" onchange="readUrl(this);"> 
+      		</div>
+       </div>
+       
        <p>Hours of Operation<span><input type="text" id= "operating_hours" name="OPERATING_HOURS"></span></p>
        <p>Educational Requirements<span><input type="text" id= "education" name="EDUCATION" ></span></p>
        <p>Skills Required<span><input type="text" id="skills" name="SKILLS"></span></p>

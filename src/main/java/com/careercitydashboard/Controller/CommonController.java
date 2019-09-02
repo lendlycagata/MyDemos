@@ -50,6 +50,9 @@ public class CommonController {
 	
 	@Autowired
 	private SiteService siteService;
+	
+	@Autowired
+	private UploadController uploadController;
 
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -75,11 +78,11 @@ public class CommonController {
 
 
 	@RequestMapping(value = "/updateaccount", method = RequestMethod.POST)
-	public String updateAccount(Account account) {
+	public String updateAccount(Account account,MultipartFile file) {
 
 		// For uploading the image to repository
-		
-
+		account.setACCOUNT_IMAGE_PATH(uploadController.singeImageUpload(file));
+		System.out.println(account.getACCOUNT_IMAGE_PATH());
 		this.accountService.updateAccount(account);
 		return "redirect:/listaccount";
 	}
