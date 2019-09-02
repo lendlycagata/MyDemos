@@ -47,6 +47,8 @@ public class Account {
 	
 	private String CATEGORY;
 	
+	private String JOB_REQ;
+	
 	private String TRAININGS;
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="ACCOUNT_ID")
@@ -189,6 +191,16 @@ public class Account {
 	public void setTRAININGS(String tRAININGS) {
 		TRAININGS = tRAININGS;
 	}
+	
+	
+
+	public String getJOB_REQ() {
+		return JOB_REQ;
+	}
+
+	public void setJOB_REQ(String jOB_REQ) {
+		JOB_REQ = jOB_REQ;
+	}
 
 	@Override
 	public String toString() {
@@ -197,8 +209,9 @@ public class Account {
 				+ ", TM_TASK=" + TM_TASK + ", EDUCATION=" + EDUCATION + ", BPO_EXP=" + BPO_EXP + ", SKILLS=" + SKILLS
 				+ ", BUSINESS_VERTICAL=" + BUSINESS_VERTICAL + ", OPERATING_HOURS=" + OPERATING_HOURS
 				+ ", SKILLS_PREMIUM=" + SKILLS_PREMIUM + ", WORK_TYPE=" + WORK_TYPE + ", CATEGORY=" + CATEGORY
-				+ ", TRAININGS=" + TRAININGS + ", accountAnswers=" + accountAnswers + "]";
+				+ ", JOB_REQ=" + JOB_REQ + ", TRAININGS=" + TRAININGS + ", accountAnswers=" + accountAnswers + "]";
 	}
+
 	
 	
 	

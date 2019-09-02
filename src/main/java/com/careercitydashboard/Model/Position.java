@@ -43,6 +43,8 @@ public class Position {
 	
 	private String TRAININGS;
 	
+	private String JOB_REQ;
+	
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="POSITION_ID")
 	private List<PositionAnswers> positionAnswers;
@@ -162,6 +164,16 @@ public class Position {
 	public void setPositionAnswers(List<PositionAnswers> positionAnswers) {
 		this.positionAnswers = positionAnswers;
 	}
+	
+	
+
+	public String getJOB_REQ() {
+		return JOB_REQ;
+	}
+
+	public void setJOB_REQ(String jOB_REQ) {
+		JOB_REQ = jOB_REQ;
+	}
 
 	@Override
 	public String toString() {
@@ -169,9 +181,10 @@ public class Position {
 				+ ", JOB_PROFILE=" + JOB_PROFILE + ", DESCRIPTION=" + DESCRIPTION + ", CERTIFICATION=" + CERTIFICATION
 				+ ", EDUCATIONAL_BACKGROUND=" + EDUCATIONAL_BACKGROUND + ", EXPERIENCE_REQUIRED=" + EXPERIENCE_REQUIRED
 				+ ", SKILLS_REQUIRED=" + SKILLS_REQUIRED + ", OTHER_SKILLS=" + OTHER_SKILLS + ", CATEGORY=" + CATEGORY
-				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", positionAnswers=" + positionAnswers
-				+ "]";
+				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", JOB_REQ=" + JOB_REQ
+				+ ", positionAnswers=" + positionAnswers + "]";
 	}
+
 	
 	
 

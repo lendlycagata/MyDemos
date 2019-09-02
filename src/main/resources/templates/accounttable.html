@@ -27,12 +27,13 @@
 		  
 			  <thead>
 	            <tr>
-	                <th>Account Id</th>
+	                <th class="columnhidden">Account Id</th>
 	                <th>Account Name</th>
 	                <th>Location</th>
 	                <th>Line of Business</th>
 	                <th>Business Vertical</th>
 	                <th>Work Type</th>
+	                <th>Job Requisition link</th>
                     <th>Edit Details</th>
                     <th>Edit Mapping</th>
                     <th class="columnhidden">Image Path</th>
@@ -52,13 +53,13 @@
 		  
 		       	<tr th:each="account : ${allaccounts}">
 		       	
-				      <td th:text="${account.ACCOUNT_ID}"></td>
+				      <td class="columnhidden" th:text="${account.ACCOUNT_ID}"></td>
 				      <td th:text="${account.ACCOUNT_NAME}"></td>
 				      <td th:text="${account.LOCATION}"></td>
 				      <td th:text="${account.LOB}"></td>
 				      <td th:text="${account.BUSINESS_VERTICAL}"></td>
 				      <td th:text="${account.WORK_TYPE}"></td>
-				      
+				      <td th:text="${account.JOB_REQ}"></td>
 				      <td class="columnhidden" th:text="${account.ACCOUNT_IMAGE_PATH}"></td>
 				      <td class="columnhidden" th:text="${account.DESCRIPTION}"></td>
 				      <td class="columnhidden" th:text="${account.TM_TASK}"></td>
@@ -74,7 +75,7 @@
 				     id="editdetails1">
 				   	  
 				   	  
-				   	  Edit Details</button></td>
+				   	  Edit Details</button>&nbsp<button type="button" class="btn btn-secondary">Edit Image</button></td>
 				   	  
 				   	  
 					  <td>
@@ -94,12 +95,13 @@
 		      
 		      <tfoot>
 	            <tr>
-	                <th>Account Id</th>
+	                <th class="columnhidden">Account Id</th>
 	                <th>Account Name</th>
 	                <th>Location</th>
 	                <th>Line of Business</th>
 	                <th>Business Vertical</th>
 	                <th>Work Type</th>
+	                <th>Job Requisition link</th>
                     <th>Edit Details</th>
                     <th>Edit Mapping</th>
                     <th class="columnhidden">Image Path</th>

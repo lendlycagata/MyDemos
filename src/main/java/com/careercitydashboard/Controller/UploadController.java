@@ -9,13 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UploadController {
-	
-	
 	
 	/*localpath*/
 	private static String UPLOADER_FOLDER = "C://things//";
@@ -27,6 +26,7 @@ public class UploadController {
 	public String gotouploadpage() {
 		return "imagefileupload";
 	}
+	
 	@PostMapping("/upload")
 	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
 		
@@ -34,15 +34,14 @@ public class UploadController {
 			redirectAttributes.addFlashAttribute("warning", "Please Select a file to upload");
 			return "redirect:/uploadStatus";
 		}
-		
 		try {
 			byte[] bytes =file.getBytes();
 			Path path = Paths.get(UPLOADER_FOLDER + file.getOriginalFilename());
 			Files.write(path, bytes);
 			
+			String url = "https://35.185.222.6/ImageRepo/" + file.getOriginalFilename();
 			redirectAttributes.addFlashAttribute("message",
-                    "https://35.185.222.6/ImageRepo/" + file.getOriginalFilename() + "");
-			
+                    url);
 		}catch(IOException e){
 			e.printStackTrace();
 		}

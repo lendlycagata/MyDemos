@@ -16,11 +16,13 @@ import com.careercitydashboard.Model.AccountAnswers;
 import com.careercitydashboard.Model.Answer;
 import com.careercitydashboard.Model.Position;
 import com.careercitydashboard.Model.Questions;
+import com.careercitydashboard.Model.Site;
 import com.careercitydashboard.Service.AccountAnswersService;
 import com.careercitydashboard.Service.AccountService;
 import com.careercitydashboard.Service.AnswerService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
+import com.careercitydashboard.Service.SiteService;
 
 @RestController
 public class DataController {
@@ -35,6 +37,8 @@ public class DataController {
 	private AccountAnswersService accountAnswerService;
 	@Autowired
 	private AnswerService answerService;
+	@Autowired
+	private SiteService siteService;
 	
 	
 	@RequestMapping(path="/accounts", method=RequestMethod.GET)
@@ -66,6 +70,11 @@ public class DataController {
 	@RequestMapping(path="/accountmap/{id}" , method=RequestMethod.GET)
 	public Account getaccountmapbyId(@PathVariable(value = "id")Integer ACCOUNT_ID) {
 		return this.accountService.getAccountMapping(ACCOUNT_ID);
+	}
+	
+	@GetMapping("/sitelist")
+	public List<Site> getAllSiteListJson(){
+		return this.siteService.getAllSiteList();
 	}
 	
 }
