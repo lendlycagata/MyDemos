@@ -1,7 +1,13 @@
 package com.careercitydashboard.Controller;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.thymeleaf.util.ListUtils;
 
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.AccountAnswers;
@@ -185,5 +192,17 @@ public class CommonController {
 		this.siteService.deleteSite(SITE_ID);
 		return "redirect:/sites";
 	}
+	
+	//ImageList View
+	/*@RequestMapping(value="/imagelinklist" , method=RequestMethod.GET )
+	public String showAllImage(Model model) {
+		List<Account> getAllAccountImage = this.accountService.getallAccounts();
+		List<Position> getAllPoisitionImage = this.positionService.getallPositions();
+		Object AllimageList = ListUtils.containsAll(getAllAccountImage, getAllPoisitionImage);
+		model.addAttribute("allimage", AllimageList);
+		return "ImagePage";
+	}*/
+	
+	
 
 }

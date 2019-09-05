@@ -54,9 +54,12 @@
 	   <button type="submit" class="btn btn-success" >Save</button>
         </form>
         
-        <form>
-        <span><a th:href="@{/uploadpage}">Upload Image</a> </span>
-        <input type="submit" value="Upload image"/>
+        
+       <form th:action="@{/uploadimage}" method="post"
+		enctype="multipart/form-data">
+		<input type="file" name="file"> <input type="submit"
+			value="uploadfile">
+	
         </form>
             
         </div>

@@ -1,7 +1,16 @@
 package com.careercitydashboard.Controller;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +18,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.ListUtils;
 
 import com.careercitydashboard.Model.Account;
 import com.careercitydashboard.Model.AccountAnswers;
@@ -77,4 +88,30 @@ public class DataController {
 		return this.siteService.getAllSiteList();
 	}
 	
+
+	
+	
+	@GetMapping("/imagelist")
+	public List<String> getAllImage() throws IOException {
+		
+		List<String> imagelist = new ArrayList<>();
+		String url="C://things";
+		/*String url="//opt/tomcat/webapps/ImageRepo//";*/
+		
+		String link="https://35.185.222.6/ImageRepo/";
+		File folder = new File(url);
+		File [] listOfFiles = folder.listFiles();
+		
+		
+		for(File file: listOfFiles ) {
+			imagelist.add(link + file.getName()); 
+			System.out.println("https://35.185.222.6/ImageRepo/" + file.getName());
+		}
+		
+		return imagelist;
+		
+		
+				
+	}
+		
 }

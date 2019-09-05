@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career City Admin Dashboard</title>
+<div th:replace="fragments/headplugs"></div>
+
+</head>
+<body>
+		<table>
+			
+			<tbody>
+				<tr th:each="allsites:${allimage}">
+					<td th:text="${allsites.ACCOUNT_IMAGE_PATH}">
+					<td th:text="${allsites.IMAGE_PATH}">
+				</tr>
+			</tbody>
+			
+			  
+		</table>
+
+<div th:replace="fragments/footplugs"></div>
+</body>
+</html>
