@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,7 @@ import com.careercitydashboard.Service.PositionAnswerService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
 import com.careercitydashboard.Service.SiteService;
+import com.careercitydashboard.util.ShowImageList;
 import com.careercitydashboard.util.UploadUtility;
 
 @Controller
@@ -192,16 +194,15 @@ public class CommonController {
 		this.siteService.deleteSite(SITE_ID);
 		return "redirect:/sites";
 	}
-	
-	//ImageList View
-	/*@RequestMapping(value="/imagelinklist" , method=RequestMethod.GET )
-	public String showAllImage(Model model) {
-		List<Account> getAllAccountImage = this.accountService.getallAccounts();
-		List<Position> getAllPoisitionImage = this.positionService.getallPositions();
-		Object AllimageList = ListUtils.containsAll(getAllAccountImage, getAllPoisitionImage);
-		model.addAttribute("allimage", AllimageList);
+	@RequestMapping(value="/imagewindow" , method=RequestMethod.GET)
+	public String allImageList( Model model) throws IOException {
+		ShowImageList showImageList = new ShowImageList();
+		showImageList.getAllImage();
+		model.addAttribute("imagelist" , showImageList.getAllImage());
 		return "ImagePage";
-	}*/
+		
+	}
+	
 	
 	
 

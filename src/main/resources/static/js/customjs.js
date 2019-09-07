@@ -300,3 +300,20 @@ $(document).ready(function() {
 	});
 
 });
+
+
+/*image view*/
+
+/*$(document).ready(function(){
+	$( window ).on( 'load', function(){
+		
+		
+		var imagelink = $('.imageText').text();
+		console.log (imagelink);
+		$('.imagePic').attr('src',imagelink);
+		
+		
+	})
+});
+*/
+

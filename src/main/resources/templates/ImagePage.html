@@ -7,13 +7,16 @@
 <div th:replace="fragments/headplugs"></div>
 
 </head>
-<body>
-		<table>
+<body >
+		<table id="imageViewPage">
 			
 			<tbody>
-				<tr th:each="allsites:${allimage}">
-					<td th:text="${allsites.ACCOUNT_IMAGE_PATH}">
-					<td th:text="${allsites.IMAGE_PATH}">
+				<tr th:each="allsites:${imagelist}">
+					<td >
+					<div><img class="imagePic"  th:src="@{${allsites}}"  alt="" width="auto" height="100px"></div>
+					<p class="imageText" th:text="${allsites}" th:value="${allsites}"></p>
+					</td>
+					
 				</tr>
 			</tbody>
 			
