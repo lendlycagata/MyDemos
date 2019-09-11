@@ -26,6 +26,7 @@ import com.careercitydashboard.Model.AccountAnswers;
 import com.careercitydashboard.Model.Position;
 import com.careercitydashboard.Model.PositionAnswers;
 import com.careercitydashboard.Model.Site;
+import com.careercitydashboard.Model.Users;
 import com.careercitydashboard.Service.AccountAnswersService;
 import com.careercitydashboard.Service.AccountService;
 import com.careercitydashboard.Service.AnswerService;
@@ -33,6 +34,7 @@ import com.careercitydashboard.Service.PositionAnswerService;
 import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
 import com.careercitydashboard.Service.SiteService;
+import com.careercitydashboard.Service.UsersService;
 import com.careercitydashboard.util.ShowImageList;
 import com.careercitydashboard.util.UploadUtility;
 
@@ -62,6 +64,8 @@ public class CommonController {
 	
 	@Autowired
 	private UploadController uploadController;
+	
+	
 
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -203,6 +207,12 @@ public class CommonController {
 		
 	}
 	
+	
+	/*users table*/
+	public List<Users> getAllUsersList(){
+		return null;
+		
+	}
 	
 	
 
