@@ -117,6 +117,10 @@ public class DataController {
 				
 	}
 	
+	@GetMapping("/userlist")
+	public List<Users> getAllUsers(){
+		return (List<Users>)this.usersService.getAllUsers();
+	}
 
 		
 }

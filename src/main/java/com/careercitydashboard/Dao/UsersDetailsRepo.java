@@ -11,6 +11,7 @@ public interface UsersDetailsRepo extends JpaRepository<Users, Integer>{
 	
 	
 		public Users findByUsername(String  username);
-	
+		public Users findByFirstname(String firstname);
+		public Users findByLastname(String lastname);
 
 }

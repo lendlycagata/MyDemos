@@ -110,6 +110,12 @@
 			    <scope>provided</scope>
 			</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity3 -->
+		<dependency>
+		    <groupId>org.thymeleaf.extras</groupId>
+		    <artifactId>thymeleaf-extras-springsecurity3</artifactId>
+		    <version>3.0.4.RELEASE</version>
+		</dependency>
 		
 
 

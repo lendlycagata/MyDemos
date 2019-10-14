@@ -49,7 +49,9 @@ public class UsersDetailsImpl implements UserDetails {
 		// TODO Auto-generated method stub
 		return users.getUsername();
 	}
-
+	
+	
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
@@ -74,6 +76,15 @@ public class UsersDetailsImpl implements UserDetails {
 		return true;
 	}
 
+	/*userdetails*/
+	public String getFirstname() {
+	return users.getFirstname() ;	
+		
+	}
 	
+	public String getLastname() {
+		return users.getLastname();	
+			
+		}
 	
 }

@@ -33,7 +33,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests().antMatchers("/login").authenticated().anyRequest().permitAll().and()
 				.authorizeRequests()
-				.antMatchers("/", "/*listaccount*/**","/*addaccount*/**").access("hasRole('ADMIN')").and()
+				.antMatchers( "/listaccount","/sites","/listposition").access("hasRole('ADMIN')") 
+				.anyRequest().authenticated()
+				.and()
 				.formLogin()
 				.defaultSuccessUrl("/listaccount/", true)
 				.permitAll();

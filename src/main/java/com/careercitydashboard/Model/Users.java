@@ -27,8 +27,10 @@ public class Users {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer USER_ID;
 	
-	private String USER_FNAME;
-	private String USER_LNAME;
+	@Column(name="USER_FNAME")
+	private String firstname;
+	@Column(name="USER_LNAME")
+	private String lastname;
 	
 	@Column(name="USER_EMPID")
 	private String username;
@@ -51,20 +53,20 @@ public class Users {
 		USER_ID = uSER_ID;
 	}
 
-	public String getUSER_FNAME() {
-		return USER_FNAME;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setUSER_FNAME(String uSER_FNAME) {
-		USER_FNAME = uSER_FNAME;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getUSER_LNAME() {
-		return USER_LNAME;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setUSER_LNAME(String uSER_LNAME) {
-		USER_LNAME = uSER_LNAME;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getUsername() {
@@ -109,7 +111,7 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "Users [USER_ID=" + USER_ID + ", USER_FNAME=" + USER_FNAME + ", USER_LNAME=" + USER_LNAME + ", username="
+		return "Users [USER_ID=" + USER_ID + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
 				+ username + ", PASSWORD=" + PASSWORD + ", USER_GROUP=" + USER_GROUP + ", USER_STATUS=" + USER_STATUS
 				+ ", roles=" + roles + "]";
 	}
