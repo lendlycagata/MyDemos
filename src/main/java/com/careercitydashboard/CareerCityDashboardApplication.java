@@ -8,6 +8,9 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.careercitydashboard.util.PasswordEncoder;
 
 
 
@@ -31,5 +34,10 @@ public class CareerCityDashboardApplication extends SpringBootServletInitializer
 	    connector.addUpgradeProtocol(new Http2Protocol());
 	  }));
 	  return factory;
+	}
+	
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+	    return new BCryptPasswordEncoder();
 	}
 }

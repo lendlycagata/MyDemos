@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,9 @@ public class UsersServiceImpl implements UsersService {
 	
 	@Autowired
 	private UsersRepo usersRepo;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@Override
 	public List<Users> getAllUsers() {
@@ -31,12 +35,14 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public Users addUsers(Users users) {
 		// TODO Auto-generated method stub
+		users.setPASSWORD(passwordEncoder.encode(users.getPASSWORD()));
 		return this.usersRepo.save(users);
 	}
 
 	@Override
 	public Users updateUsers(Users users) {
 		// TODO Auto-generated method stub
+		
 		return this.usersRepo.save(users);
 	}
 

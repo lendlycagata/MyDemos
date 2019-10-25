@@ -65,6 +65,9 @@ public class CommonController {
 	@Autowired
 	private UploadController uploadController;
 	
+	@Autowired
+	private UsersService userService;
+	
 	
 
 	@RequestMapping("/")
@@ -209,9 +212,17 @@ public class CommonController {
 	
 	
 	/*users table*/
-	public List<Users> getAllUsersList(){
-		return null;
-		
+	@RequestMapping(value="/allusers" , method=RequestMethod.GET)
+	public String allUserList(Model model) {
+	 List <Users> allUsers= this.userService.getAllUsers();
+	 model.addAttribute("alluserslist", allUsers);
+	 return "userspage";
+	}
+	
+	@RequestMapping(value="/adduser" , method=RequestMethod.POST)
+	public String Users(Users users) {
+		this.userService.addUsers(users);
+		return "redirect:/listaccount";
 	}
 	
 	
