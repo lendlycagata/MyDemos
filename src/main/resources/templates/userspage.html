@@ -15,9 +15,9 @@
     </div>
 
     <div class="col-sm-10">
-		      <h4>Accounts Table<span> <button class="btn btn-info" data-toggle="modal" data-target="#addaccount">Add new account</button></span></h4>
+		      <h4>Users<span>  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUser">Add user</button></span></h4>
 		      </hr>
-		      <table id="accountTable" class="table table-striped" >
+		      <table id="userspage" class="table table-striped" >
 		  
 			  <thead>
 	            <tr>
@@ -25,10 +25,9 @@
 	                <th>First Name</th>
 	                <th>Last Name</th>
 	                <th>Employee Id</th>
-	                <th>Password</th>
-	                <th>Department</th>
-	                <th>Role</th>
-                    
+	            	<th>Department</th>
+	                <th>Active</th>
+                    <th>Options</th>
                     
 	                 
 	            </tr>
@@ -43,61 +42,25 @@
 				      <td th:text="${userslist.username}"></td>
 				      <td th:text="${userslist.USER_GROUP}"></td>
 				      <td th:text="${userslist.USER_STATUS}"></td>
-				      <td th:text="${account.JOB_REQ}"></td>
-				      <td class="columnhidden" th:text="${account.ACCOUNT_IMAGE_PATH}"></td>
-				      <td class="columnhidden" th:text="${account.DESCRIPTION}"></td>
-				      <td class="columnhidden" th:text="${account.TM_TASK}"></td>
-				      <td class="columnhidden" th:text="${account.EDUCATION}"></td>
-				      <td class="columnhidden" th:text="${account.BPO_EXP}"></td>
-				      <td class="columnhidden" th:text="${account.SKILLS}"></td>
-				      <td class="columnhidden" th:text="${account.OPERATING_HOURS}"></td>
-				      <td class="columnhidden" th:text="${account.SKILLS_PREMIUM}"></td>
-				      <td class="columnhidden" th:text="${account.CATEGORY}"></td>
-				      <td class="columnhidden" th:text="${account.TRAININGS}"></td>
-				      
-				   	  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editdetails" 
-				     id="editdetails1">
+				     
+				   	  <td>
+				   	  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edituserdetails" 
+				     id="editdetails1">Edit User Details</button>
+				     
 				   	  
-				   	  
-				   	  Edit Details</button>&nbsp<button type="button" class="btn btn-secondary">Edit Image</button></td>
-				   	  
-				   	  
-					  <td>
-					  
-					 
-					 
-						
-						<form th:action="@{/accountmaps/} + ${account.ACCOUNT_ID}" method="get">
-						<button  class="btn btn-success" >
-						View Mapping
-						</button>
-						</form>
-						</td>
 						
 		      	</tr>
 		      </tbody>
 		      
 		      <tfoot>
 	            <tr>
-	                <th class="columnhidden">Account Id</th>
-	                <th>Account Name</th>
-	                <th>Location</th>
-	                <th>Line of Business</th>
-	                <th>Business Vertical</th>
-	                <th>Work Type</th>
-	                <th>Job Requisition link</th>
-                    <th>Edit Details</th>
-                    <th>Edit Mapping</th>
-                    <th class="columnhidden">Image Path</th>
-                    <th class="columnhidden">Description</th>
-                    <th class="columnhidden">TM Tasks</th>
-                    <th class="columnhidden">Education</th>
-                    <th class="columnhidden">BPO_EXP</th>
-                    <th class="columnhidden">Skills</th>
-                    <th class="columnhidden">Operating Hours</th>
-                    <th class="columnhidden">Skills Premium</th>
-                    <th class="columnhidden">Category</th>
-                    <th class="columnhidden">Trainings</th>
+	                <th class="columnhidden">*</th>
+	                <th>First Name</th>
+	                <th>Last Name</th>
+	                <th>Employee Id</th>
+	                <th>Department</th>
+	                <th>Active</th>
+                    <th>Options</th>
 				
 				</tr>
 	        	</tfoot>
@@ -114,8 +77,8 @@
           </div>
         </div>
 
-
-
+<div th:replace="fragments/modals/editusers"></div>
+<div th:replace="fragments/modals/adduser"></div>
 <div th:replace="fragments/footplugs"> </div>
 </body>
 </html>

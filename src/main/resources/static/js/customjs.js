@@ -36,9 +36,16 @@ function readUrl(input){
 		reader.readAsDataURL(input.files[0]);
 	}	
 }
+
+/*Datatable JS*/
 $(document).ready(function() {
 	$('#accountTable').DataTable();
 });
+
+$(document).ready(function() {
+	$('#userspage').DataTable();
+});
+
 
 /*TABLE EDITOR*/
 /*account edit*/
