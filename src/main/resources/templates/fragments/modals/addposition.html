@@ -1,34 +1,34 @@
 <!-- Modal -->
 <div id="addposition" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
+	<div th:replace="fragments/stylemodal"> </div>
     <!-- Modal content-->
     <div class="modal-content">
-      <div class="modal-header">
+<!--       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Modal Header</h4>
-      </div>
+      </div> -->
       <div class="modal-body">
 	      <form th:action="@{/addposition}" method="post">
-			      <p>Position<span><input type="text" id="jobprofile2" name="JOB_PROFILE"></span></p>
+			      <p>Position <span><input type="text" id="jobprofile2" name="JOB_PROFILE"></span></p>
 			         <div>
-			             <p>Category<span><select id="category2" name="CATEGORY" >
+			             <p>Category <span><select id="category2" name="CATEGORY" >
 							  <option value="DS">Digital Services</option>
 							  <option value="ST">Support Role</option>
 						   </select></span></p> 
 				     </div>
 				     
-				  <p>Department<span><input type="text" id="department2" name="DEPARTMENT"/></span></p>
-				  <p>Support Type<span><input type="text" id="supporttype2" name="SUPPORT_TYPE"></span></p>
-				  <p>Image Path<span><input type="text" id="imagepath2" name="IMAGE_PATH"></span></p>
-				  <p>Certification<span><input type="text" id="certification2" name="CERTIFICATION"></span></p>
-				  <p>Educational Background<span><input type="text" id="educational2" name="EDUCATIONAL_BACKGROUND"></span></p>
-				  <p>Exp Required<span><input type="text" id="exp2" name="EXPERIENCE_REQUIRED"></span></p>
-	  			  <p>Other Skills<span><textarea class="form-control rounded-0"  rows="4" id="otherskills2" name="OTHER_SKILLS"></textarea></span></p>
-				  <p>Skills Required<span><textarea class="form-control rounded-0"  rows="4" id="skillsreq2" name="SKILLS_REQUIRED"></textarea></span></p>
-				  <p>Description<span><textarea class="form-control rounded-0"  rows="4" id="description2" name="DESCRIPTION"></textarea></span></p>
-				  <p>Trainings<span><textarea class="form-control rounded-0"  rows="4" id="trainings2" name="TRAININGS"></textarea></span></p>
-				  <p>Job Requisition<span><input type="text" id="job_req2"name="JOB_REQ"></span></p>
+				  <p>Department <span><input type="text" id="department2" name="DEPARTMENT"/></span></p>
+				  <p>Support Type <span><input type="text" id="supporttype2" name="SUPPORT_TYPE"></span></p>
+				  <p>Image Path <span><input type="text" id="imagepath2" name="IMAGE_PATH"></span></p>
+				  <p>Certification <span><input type="text" id="certification2" name="CERTIFICATION"></span></p>
+				  <p>Educational Background <span><input type="text" id="educational2" name="EDUCATIONAL_BACKGROUND"></span></p>
+				  <p>Exp Required <span><input type="text" id="exp2" name="EXPERIENCE_REQUIRED"></span></p>
+	  			  <p>Other Skills <span><textarea class="form-control rounded-0"  rows="4" id="otherskills2" name="OTHER_SKILLS"></textarea></span></p>
+				  <p>Skills Required <span><textarea class="form-control rounded-0"  rows="4" id="skillsreq2" name="SKILLS_REQUIRED"></textarea></span></p>
+				  <p>Description <span><textarea class="form-control rounded-0"  rows="4" id="description2" name="DESCRIPTION"></textarea></span></p>
+				  <p>Trainings <span><textarea class="form-control rounded-0"  rows="4" id="trainings2" name="TRAININGS"></textarea></span></p>
+				  <p>Job Requisition <span><input type="text" id="job_req2"name="JOB_REQ"></span></p>
 				     <hr>
 		     	  <input type="submit" value="Save" class="btn btn-success">	
 		   </form>

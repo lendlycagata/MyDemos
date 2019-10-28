@@ -72,8 +72,8 @@ public class CommonController {
 
 	@RequestMapping("/")
 	public String index(Model model) {
-		model.addAttribute("welcome", "Career City Admin Dashboard");
-		return "redirect:/login";
+		model.addAttribute("welcome", " ");
+		return "home";
 	}
 
 	@RequestMapping(value = "/listaccount", method = RequestMethod.GET)
