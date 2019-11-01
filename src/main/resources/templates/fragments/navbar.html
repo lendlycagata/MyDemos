@@ -10,10 +10,8 @@
       	<span th:text="${#authentication.getPrincipal().getLastname()}"></span>
         </div>
         <br>
-        
-        
-         
-       
+
+
         <form th:action="@{/}" >
        
          <button type="submit" class="btn btn-warning"> Home </button></br>
@@ -40,23 +38,20 @@
          <button type="submit" class="btn btn-danger"> Images </button></br>
          </form>
          <hr>
-         
+
          <form th:action="@{/allusers}" method="GET">
          <button type="submit" class="btn btn-warning"> Users </button></br>
          </form>
          <hr>
         
+
          
          
          <form th:action="@{/logout}" >
          <button type="submit" class="btn btn-danger"> Log Out </button></br>
          </form>
          <hr>
-         
-         
-       
-         
+
        
       </div>
       
-     

@@ -10,7 +10,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.catalina.connector.Request;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,11 +39,14 @@ import com.careercitydashboard.Service.PositionService;
 import com.careercitydashboard.Service.QuestionsService;
 import com.careercitydashboard.Service.SiteService;
 import com.careercitydashboard.Service.UsersService;
+import com.careercitydashboard.ServiceImpl.UsersDetailServiceImpl;
 import com.careercitydashboard.util.ShowImageList;
 import com.careercitydashboard.util.UploadUtility;
 
 @Controller
 public class CommonController {
+	
+	private  final Logger logger = LoggerFactory.getLogger(CommonController.class);
 
 	@Autowired
 	private AccountService accountService;
@@ -68,10 +75,14 @@ public class CommonController {
 	@Autowired
 	private UsersService userService;
 	
+	@Autowired
+	private UsersDetailServiceImpl usersDetSerImpl;
 	
 
 	@RequestMapping("/")
 	public String index(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		logger.info("last logged by" + auth.getName());
 		model.addAttribute("welcome", " ");
 		return "home";
 	}
@@ -79,6 +90,7 @@ public class CommonController {
 	@RequestMapping(value = "/listaccount", method = RequestMethod.GET)
 
 	public String listofallAccounts(Model model) throws IOException {
+		logger.debug("accounttable");
 		List<Account> listofallaccounts = this.accountService.getallAccounts();
 
 		model.addAttribute("allaccounts", listofallaccounts);
@@ -213,7 +225,10 @@ public class CommonController {
 	
 	/*users table*/
 	@RequestMapping(value="/allusers" , method=RequestMethod.GET)
-	public String allUserList(Model model) {
+	public String allUserList(Model model ) {
+		/*UsersDetailServiceImpl usersDetSerImpl= new UsersDetailServiceImpl();
+		usersDetSerImpl.loadUserByUsername(username);*/
+		
 	 List <Users> allUsers= this.userService.getAllUsers();
 	 model.addAttribute("alluserslist", allUsers);
 	 return "userspage";
@@ -222,7 +237,7 @@ public class CommonController {
 	@RequestMapping(value="/adduser" , method=RequestMethod.POST)
 	public String Users(Users users) {
 		this.userService.addUsers(users);
-		return "redirect:/listaccount";
+		return "redirect:/allusers";
 	}
 	
 	
