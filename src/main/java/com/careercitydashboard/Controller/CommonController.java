@@ -18,11 +18,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.util.ListUtils;
 
 import com.careercitydashboard.Model.Account;
@@ -86,6 +88,8 @@ public class CommonController {
 		model.addAttribute("welcome", " ");
 		return "home";
 	}
+	
+	
 
 	@RequestMapping(value = "/listaccount", method = RequestMethod.GET)
 
@@ -240,6 +244,36 @@ public class CommonController {
 		return "redirect:/allusers";
 	}
 	
+	@RequestMapping(value = "/edit/{USER_ID}")
+	
+		public ModelAndView editUsers(@PathVariable(name = "USER_ID") Integer USER_ID) {
+			ModelAndView mav = new ModelAndView("updateUser");
+			Users users = this.userService.updateUsers(USER_ID);
+			mav.addObject("users", users);
+			
+			return mav;
+	}
+	
+	
+	
+	@RequestMapping(value = "/resetPW/{USER_ID}")
+	
+	public ModelAndView resetPassword(@PathVariable(name = "USER_ID") Integer USER_ID) {
+		ModelAndView mav = new ModelAndView("resetPW");
+		Users users = this.userService.updateUsers(USER_ID);
+		mav.addObject("users", users);
+		
+		return mav;
+}
+	
+	
+	
+	@RequestMapping(value="/save" , method = RequestMethod.POST)
+	public String saveUser(@ModelAttribute("users") Users users) {
+		/*this.dashboardService.saveModel(dashboardModel);*/
+		this.userService.saveUsers(users);
+		return "redirect:/listaccount";
+	}
 	
 
 }

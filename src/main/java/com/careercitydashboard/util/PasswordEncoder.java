@@ -12,7 +12,7 @@ public class PasswordEncoder {
 
 		public static void main(String[] args) {
 			
-			String password ="bekbek";
+			String password ="lendly";
 			BCryptPasswordEncoder passwordEncode = new BCryptPasswordEncoder();
 			String hashedPassword = passwordEncode.encode(password);
 			

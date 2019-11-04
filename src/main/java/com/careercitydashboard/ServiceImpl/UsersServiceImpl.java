@@ -39,19 +39,30 @@ public class UsersServiceImpl implements UsersService {
 		return this.usersRepo.save(users);
 	}
 
+
+	
 	@Override
-	public Users updateUsers(Users users) {
+	public Users updateUsers(Integer USER_ID) {
 		// TODO Auto-generated method stub
-		
-		return this.usersRepo.save(users);
+		return this.usersRepo.findById(USER_ID).get();
 	}
+	
+	
 
 	@Override
 	public Users getUsersById(Integer USER_ID) {
 		// TODO Auto-generated method stub
 		return this.usersRepo.findById(USER_ID).get();
 	}
-	
+
+	@Override
+	public Users saveUsers(Users users) {
+		// TODO Auto-generated method stub
+		users.setPASSWORD(passwordEncoder.encode(users.getPASSWORD()));
+		return this.usersRepo.save(users);
+	}
+
+
 		
 	
 }
