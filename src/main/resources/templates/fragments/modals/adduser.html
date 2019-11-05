@@ -9,6 +9,7 @@
       </div>
       <div class="modal-body">
         <form th:action="@{/adduser}" method="POST">
+        <div class="columnhidden"><p>Changed By<span><input type="text"   name="created_by" th:value="${changedby}"  ></p></span> </p></div>
         	<p>First Name<span><input type="text" name="firstname" id="firstname"></span></p>
         	<p>Last Name<span><input type="text" name="lastname" id="lastname"></span></p>
             <p>Employee Id<span><input type="text" name="username" id="username"></span></p>

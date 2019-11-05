@@ -95,6 +95,12 @@ public class CommonController {
 
 	public String listofallAccounts(Model model) throws IOException {
 		logger.debug("accounttable");
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		logger.info("last logged by" + auth.getName());
+		model.addAttribute("lastsavedby", username);
+		
 		List<Account> listofallaccounts = this.accountService.getallAccounts();
 
 		model.addAttribute("allaccounts", listofallaccounts);
@@ -110,11 +116,11 @@ public class CommonController {
 
 
 	@RequestMapping(value = "/updateaccount", method = RequestMethod.POST)
-	public String updateAccount(Account account,MultipartFile file) {
+	public String updateAccount(Account account) {
 
 		// For uploading the image to repository
-		account.setACCOUNT_IMAGE_PATH(uploadController.singeImageUpload(file));
-		System.out.println(account.getACCOUNT_IMAGE_PATH());
+		/*account.setACCOUNT_IMAGE_PATH(uploadController.singeImageUpload(file));
+		System.out.println(account.getACCOUNT_IMAGE_PATH());*/
 		this.accountService.updateAccount(account);
 		return "redirect:/listaccount";
 	}
@@ -124,6 +130,7 @@ public class CommonController {
 		UploadUtility upload = new UploadUtility();
 		if (!file.isEmpty())
 			upload.singleFileUpload(file);
+		
 		return "redirect:/listaccount";
 
 	}
@@ -232,6 +239,10 @@ public class CommonController {
 	public String allUserList(Model model ) {
 		/*UsersDetailServiceImpl usersDetSerImpl= new UsersDetailServiceImpl();
 		usersDetSerImpl.loadUserByUsername(username);*/
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		logger.info("last logged by" + auth.getName());
+		model.addAttribute("changedby", username);
 		
 	 List <Users> allUsers= this.userService.getAllUsers();
 	 model.addAttribute("alluserslist", allUsers);
@@ -243,8 +254,9 @@ public class CommonController {
 		this.userService.addUsers(users);
 		return "redirect:/allusers";
 	}
+
 	
-	@RequestMapping(value = "/edit/{USER_ID}")
+/*	@RequestMapping(value = "/edit/{USER_ID}")
 	
 		public ModelAndView editUsers(@PathVariable(name = "USER_ID") Integer USER_ID) {
 			ModelAndView mav = new ModelAndView("updateUser");
@@ -270,9 +282,16 @@ public class CommonController {
 	
 	@RequestMapping(value="/save" , method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("users") Users users) {
-		/*this.dashboardService.saveModel(dashboardModel);*/
+		this.dashboardService.saveModel(dashboardModel);
 		this.userService.saveUsers(users);
-		return "redirect:/listaccount";
+		return "redirect:/listaccount";*/
+
+	@RequestMapping(value="/edituser" , method=RequestMethod.POST)
+	public String editUser(Users users ) {
+		
+		this.userService.updateUsers(users);
+		return "redirect:/allusers";
+
 	}
 	
 

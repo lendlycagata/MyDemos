@@ -78,7 +78,10 @@
 				     id="editdetails1">
 				   	  
 				   	  
-				   	  Edit Details</button>&nbsp<button type="button" class="btn btn-secondary">Edit Image</button></td>
+				   	  Edit Details</button>&nbsp<button type="button" class="btn btn-secondary" 
+				   	  data-toggle="modal" data-target="#umploadImage" id="uploadImageBtn">
+				   	  Edit Image
+				   	  </button></td>
 				   	  
 				   	  
 					  <td>
@@ -137,6 +140,7 @@
 
   <div th:replace="fragments/modals/addaccount"></div>
   <div th:replace="fragments/modals/accountedit1"></div>
+   <div th:replace="fragments/modals/uploadimage"></div>
   <div th:replace="fragments/footplugs"> </div>
 </body>
 </html>

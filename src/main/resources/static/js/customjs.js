@@ -324,3 +324,54 @@ $(document).ready(function() {
 });
 */
 
+/*users edit table*/
+$(document).ready(function(){
+	$('#userspage').on('click', '#editUsers', function(){
+		var currentRow = $(this).closest('tr');
+		
+		var col0 = currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+		var col1 = currentRow.find('td:eq(1)').text();
+		var col2 = currentRow.find('td:eq(2)').text();
+		var col3 = currentRow.find('td:eq(3)').text();
+		var col4 = currentRow.find('td:eq(4)').text();
+		var col5 = currentRow.find('td:eq(5)').text();
+		
+		
+		
+		/*modal data catch*/
+		$('#user_id').val(col0);
+		$('#firstname').val(col1);
+		$('#lastname').val(col2);
+		$('#username1').val(col3);
+		$('#USER_GROUP').val(col4);
+		$('#USER_STATUS').val(col5);
+	});
+});
+
+/*image upload modal */
+$(document).ready(function(){
+	$('#accountTable').on('click', '#uploadImageBtn', function(){
+		var currentRow= $(this).closest('tr');
+		
+		var col0= currentRow.find('td:eq(0)').text();
+		var col1= currentRow.find('td:eq(1)').text();
+		
+		/* tester*/
+		 /*var data=col0+'\n'+col1;
+		 
+		 alert(data);*/
+		
+		
+		$('#imageaccount_id').val(col0);
+		$('#imageaccount_name').val(col1);
+		
+	});
+});
+
+$(document).ready(function(){
+	$('#imageUploaderBtn').click( function(){
+		var urlImagePath='https://35.185.222.6/ImageRepo/';
+		var fileName=$('#fileFetcher').val();
+		$('#image_path').val(urlImagePath + fileName)
+	});
+});

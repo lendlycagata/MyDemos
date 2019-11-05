@@ -2,12 +2,13 @@
   <div class="modal-dialog">
 	<div th:replace="fragments/stylemodal"> </div>
     <!-- Modal content-->
+
   	 	<div class="modal-content">
   	  
     	  <div class="modal-body">	
 	
 				
-						<div align="center">
+	<!-- 					<div align="center">
 							<h1>Edit User</h1>
 							<br />
 					                   
@@ -61,7 +62,39 @@
 						
 		 </div>
 		</div>
-	</div>
+	</div> -->
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+      <form th:action="@{/edituser}" method="post">
+        hidden
+        <div class="columnhidden"><p>User Id<span><input type="number"  id="user_id" name="USER_ID"  ></p></span> </p></div>
+        <div class="columnhidden"><p>Changed By<span><input type="text"  id="created_by" name="created_by" th:value="${changedby}"  ></p></span> </p></div>
+        hidden
+        <p>First Name<span><input type="text" id= "firstname" name="firstname"></span></p>
+        <p>Last Name<span><input type="text" id="lastname" name="lastname"></span></p>
+        <p>Employee Id<span><input type="text" id="username1" name="username"></span></p>
+        <p>Department<span><input type="text" id= "USER_GROUP" name="USER_GROUP"></span></p>
+        <p>Activate/Deactivate<span><select id= "USER_STATUS" name="USER_STATUS">
+        								<option value="true">Active</option>
+        								<option value="false">Disable</option>
+                                    </select></span></p>
+        <p>Change Password<span><input type="text" id= "PASSWORD" name="PASSWORD"></span></p>   
+         <input type="submit" value="Save">
+        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 						
 						

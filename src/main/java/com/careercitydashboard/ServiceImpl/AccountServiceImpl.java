@@ -36,22 +36,8 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public void updateAccount(Account account) {
-		Account saveAccount = getaccountbyId(account.getACCOUNT_ID());
-		saveAccount.setACCOUNT_NAME(account.getACCOUNT_NAME());
-		saveAccount.setLOCATION(account.getLOCATION());
-		saveAccount.setLOB(account.getLOB());
-		saveAccount.setBUSINESS_VERTICAL(account.getBUSINESS_VERTICAL());
-		saveAccount.setWORK_TYPE(account.getWORK_TYPE());
-		saveAccount.setACCOUNT_IMAGE_PATH(account.getACCOUNT_IMAGE_PATH());
-		saveAccount.setOPERATING_HOURS(account.getOPERATING_HOURS());
-		saveAccount.setEDUCATION(account.getEDUCATION());
-		saveAccount.setSKILLS(account.getSKILLS());
-		saveAccount.setBPO_EXP(account.getBPO_EXP());
-		saveAccount.setDESCRIPTION(account.getDESCRIPTION());
-		saveAccount.setTM_TASK(account.getTM_TASK());
-		saveAccount.setTRAININGS(account.getTRAININGS());
-		saveAccount.setJOB_REQ(account.getJOB_REQ());
-		this.accountRepo.save(saveAccount);
+	
+		this.accountRepo.save(account);
 	}
 
 	@Override
