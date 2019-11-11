@@ -85,12 +85,12 @@ $(document).ready(function() {
 		$('#business_vertical').val(col5);
 		$('#work_type').val(col6);
 		$('#job_req').val(col7);
-		$('#accountImagePath').attr('src',col8);
-		
+		$('#image_path').val(col8);
+		$('#accountImage').attr('src',col8);
 		/*  hidden columns*/
 		
-		$('.image-hero').attr('src',col8);
-		$('#image_path').val(col8);
+		
+		
 		$('#description').val(col9);
 		$('#tm_task').val(col10);
 		$('#education').val(col11);
@@ -101,7 +101,7 @@ $(document).ready(function() {
 		$('#category').val(col16);
 		$('#trainings').val(col17);
 		
-		$('#uploadImageFile').change(function(){
+		$('#fileFetcher').change(function(){
 			$('#image_path').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
 		});
 		
@@ -349,29 +349,28 @@ $(document).ready(function(){
 });
 
 /*image upload modal */
-$(document).ready(function(){
+/*$(document).ready(function(){
 	$('#accountTable').on('click', '#uploadImageBtn', function(){
 		var currentRow= $(this).closest('tr');
 		
 		var col0= currentRow.find('td:eq(0)').text();
 		var col1= currentRow.find('td:eq(1)').text();
-		
-		/* tester*/
-		 /*var data=col0+'\n'+col1;
+		var col7= currentRow.find('td:eq(7)').text();
+		 tester
+		 var data=col0+'\n'+col1;
 		 
-		 alert(data);*/
+		 alert(data);
 		
 		
 		$('#imageaccount_id').val(col0);
 		$('#imageaccount_name').val(col1);
-		
+		$('#imagepath_container').val(col7);
 	});
 });
 
 $(document).ready(function(){
-	$('#imageUploaderBtn').click( function(){
-		var urlImagePath='https://35.185.222.6/ImageRepo/';
-		var fileName=$('#fileFetcher').val();
-		$('#image_path').val(urlImagePath + fileName)
+	
+		$('#fileFetcher').change(function(){
+			$('#imagepath_container').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
 	});
-});
+});*/

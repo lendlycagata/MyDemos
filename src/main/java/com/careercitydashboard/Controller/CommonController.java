@@ -116,24 +116,16 @@ public class CommonController {
 
 
 	@RequestMapping(value = "/updateaccount", method = RequestMethod.POST)
-	public String updateAccount(Account account) {
-
-		// For uploading the image to repository
-		/*account.setACCOUNT_IMAGE_PATH(uploadController.singeImageUpload(file));
-		System.out.println(account.getACCOUNT_IMAGE_PATH());*/
+	public String updateAccount(Account account ,@RequestParam("file") MultipartFile file ) {
+		UploadUtility upload = new UploadUtility();
+		if (!file.isEmpty())
+			upload.singleFileUpload(file);
+	
 		this.accountService.updateAccount(account);
 		return "redirect:/listaccount";
 	}
 	
-	@RequestMapping(value="/uploadimage" , method= RequestMethod.POST)
-	public String imageUpload( @RequestParam("file") MultipartFile file) {
-		UploadUtility upload = new UploadUtility();
-		if (!file.isEmpty())
-			upload.singleFileUpload(file);
-		
-		return "redirect:/listaccount";
 
-	}
 
 	@RequestMapping(value = "/accountmaps/{id}", method = RequestMethod.GET)
 	public String getaccountmapbyId(@PathVariable("id") Integer ACCOUNT_ID, Model model) {
@@ -237,8 +229,7 @@ public class CommonController {
 	/*users table*/
 	@RequestMapping(value="/allusers" , method=RequestMethod.GET)
 	public String allUserList(Model model ) {
-		/*UsersDetailServiceImpl usersDetSerImpl= new UsersDetailServiceImpl();
-		usersDetSerImpl.loadUserByUsername(username);*/
+		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
 		logger.info("last logged by" + auth.getName());
@@ -256,35 +247,6 @@ public class CommonController {
 	}
 
 	
-/*	@RequestMapping(value = "/edit/{USER_ID}")
-	
-		public ModelAndView editUsers(@PathVariable(name = "USER_ID") Integer USER_ID) {
-			ModelAndView mav = new ModelAndView("updateUser");
-			Users users = this.userService.updateUsers(USER_ID);
-			mav.addObject("users", users);
-			
-			return mav;
-	}
-	
-	
-	
-	@RequestMapping(value = "/resetPW/{USER_ID}")
-	
-	public ModelAndView resetPassword(@PathVariable(name = "USER_ID") Integer USER_ID) {
-		ModelAndView mav = new ModelAndView("resetPW");
-		Users users = this.userService.updateUsers(USER_ID);
-		mav.addObject("users", users);
-		
-		return mav;
-}
-	
-	
-	
-	@RequestMapping(value="/save" , method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("users") Users users) {
-		this.dashboardService.saveModel(dashboardModel);
-		this.userService.saveUsers(users);
-		return "redirect:/listaccount";*/
 
 	@RequestMapping(value="/edituser" , method=RequestMethod.POST)
 	public String editUser(Users users ) {

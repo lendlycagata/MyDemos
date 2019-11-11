@@ -11,4 +11,5 @@ public interface AccountService {
 	public void saveAccount(Account account);
 	public void updateAccount(Account account);
 	public Account getAccountMapping(Integer ACCOUNT_ID);
+	public Account saveImage(Account account);
 }

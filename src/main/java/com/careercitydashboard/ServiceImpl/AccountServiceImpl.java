@@ -48,4 +48,11 @@ public class AccountServiceImpl implements AccountService {
 		return account;
 	}
 
+	@Override
+	public Account saveImage(Account account) {
+		Account saveImgagePath=getaccountbyId(account.getACCOUNT_ID());
+		saveImgagePath.getACCOUNT_IMAGE_PATH();
+		return this.accountRepo.save(account);
+	}
+
 }
