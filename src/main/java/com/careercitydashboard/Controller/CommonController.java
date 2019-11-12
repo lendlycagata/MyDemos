@@ -86,7 +86,7 @@ public class CommonController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		logger.info("last logged by" + auth.getName());
 		model.addAttribute("welcome", " ");
-		return "dashboard";
+		return "home";
 	}
 	
 	
