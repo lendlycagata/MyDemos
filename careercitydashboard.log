@@ -1,5 +1,0 @@
-2019-11-12 09:18:14,745 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-4 housekeeper] HikariPool-4 - Thread starvation or clock leap detected (housekeeper delta=14h52m24s944ms479µs721ns).
-2019-11-12 09:20:17,835 INFO com.careercitydashboard.Controller.CommonController [http-nio-8080-exec-2] last logged by10001111
-2019-11-12 09:29:59,171 INFO com.careercitydashboard.Controller.CommonController [http-nio-8080-exec-7] last logged by10001111
-2019-11-12 09:30:19,247 INFO com.careercitydashboard.Controller.CommonController [http-nio-8080-exec-6] last logged by10001111
-2019-11-12 09:30:33,870 INFO com.careercitydashboard.Controller.CommonController [http-nio-8080-exec-10] last logged by10001111
