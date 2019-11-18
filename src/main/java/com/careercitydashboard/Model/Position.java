@@ -45,6 +45,8 @@ public class Position {
 	
 	private String JOB_REQ;
 	
+	private String CREATED_BY;
+	
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="POSITION_ID")
 	private List<PositionAnswers> positionAnswers;
@@ -174,8 +176,28 @@ public class Position {
 	public void setJOB_REQ(String jOB_REQ) {
 		JOB_REQ = jOB_REQ;
 	}
+	
+	
+
+	public String getCREATED_BY() {
+		return CREATED_BY;
+	}
+
+	public void setCREATED_BY(String cREATED_BY) {
+		CREATED_BY = cREATED_BY;
+	}
 
 	@Override
+	public String toString() {
+		return "Position [POSITION_ID=" + POSITION_ID + ", DEPARTMENT=" + DEPARTMENT + ", SUPPORT_TYPE=" + SUPPORT_TYPE
+				+ ", JOB_PROFILE=" + JOB_PROFILE + ", DESCRIPTION=" + DESCRIPTION + ", CERTIFICATION=" + CERTIFICATION
+				+ ", EDUCATIONAL_BACKGROUND=" + EDUCATIONAL_BACKGROUND + ", EXPERIENCE_REQUIRED=" + EXPERIENCE_REQUIRED
+				+ ", SKILLS_REQUIRED=" + SKILLS_REQUIRED + ", OTHER_SKILLS=" + OTHER_SKILLS + ", CATEGORY=" + CATEGORY
+				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", JOB_REQ=" + JOB_REQ + ", CREATED_BY="
+				+ CREATED_BY + ", positionAnswers=" + positionAnswers + "]";
+	}
+
+	/*@Override
 	public String toString() {
 		return "Position [POSITION_ID=" + POSITION_ID + ", DEPARTMENT=" + DEPARTMENT + ", SUPPORT_TYPE=" + SUPPORT_TYPE
 				+ ", JOB_PROFILE=" + JOB_PROFILE + ", DESCRIPTION=" + DESCRIPTION + ", CERTIFICATION=" + CERTIFICATION
@@ -184,7 +206,7 @@ public class Position {
 				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", JOB_REQ=" + JOB_REQ
 				+ ", positionAnswers=" + positionAnswers + "]";
 	}
-
+*/
 	
 	
 
