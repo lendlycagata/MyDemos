@@ -9,7 +9,7 @@
         <h4 class="modal-title">Modal Header</h4>
       </div> -->
       <div class="modal-body">
-	      <form th:action="@{/addposition}" method="post">
+	      <form th:action="@{/addposition}" method="post" enctype="multipart/form-data">
 			      <p>Position <span><input type="text" id="jobprofile2" name="JOB_PROFILE"></span></p>
 			         <div>
 			             <p>Category <span><select id="category2" name="CATEGORY" >
@@ -20,7 +20,19 @@
 				     
 				  <p>Department <span><input type="text" id="department2" name="DEPARTMENT"/></span></p>
 				  <p>Support Type <span><input type="text" id="supporttype2" name="SUPPORT_TYPE"></span></p>
-				  <p>Image Path <span><input type="text" id="imagepath2" name="IMAGE_PATH"></span></p>
+				  <p>Image Path </p>
+				  <div class="form-group row">
+							
+							<input class="form-control" type="text" id="image_path_positionpage"
+								name="IMAGE_PATH" readonly="readonly">
+						
+						<div class="col-md-5 text-right">
+							<input id="fileFetcher_positions" type="file" name="file">
+<!-- 								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload -->
+<!-- 									Image</a> -->
+						</div>
+				  </div>
+				  		
 				  <p>Certification <span><input type="text" id="certification2" name="CERTIFICATION"></span></p>
 				  <p>Educational Background <span><input type="text" id="educational2" name="EDUCATIONAL_BACKGROUND"></span></p>
 				  <p>Exp Required <span><input type="text" id="exp2" name="EXPERIENCE_REQUIRED"></span></p>

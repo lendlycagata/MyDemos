@@ -30,7 +30,6 @@
 	                   <th>Job Profile</th>
 	                   <th >Department</th>
 	                   <th >Support Type</th>
-	                   <th>Job Requisition link</th>
 	                   <th class="columnhidden">Description</th>
 	                   <th class="columnhidden">Certification</th>
 	                   <th class="columnhidden">Educational Background</th>
@@ -52,7 +51,6 @@
 				      <td th:text="${position.DEPARTMENT}"></td>
 				      <td class="columnhidden" th:text="${position.IMAGE_PATH}"></td>
 				      <td th:text="${position.SUPPORT_TYPE}"></td>
-				      <td th:text="${position.JOB_REQ}"></td>
 				      <td class="columnhidden" th:text="${position.DESCRIPTION}"></td>
 				      <td class="columnhidden" th:text="${position.CERTIFICATION}"></td>
 				      <td class="columnhidden" th:text="${position.EDUCATIONAL_BACKGROUND}"></td>
@@ -62,7 +60,7 @@
 				      <td class="columnhidden" th:text="${position.CATEGORY}"></td>
 				      <td class="columnhidden" th:text="${position.TRAININGS}"></td>
 				   	  <td><button type="button" id="editpositiondetails" class="btn btn-primary" data-toggle="modal" data-target="#positiondetails"  >
-						 Edit Details
+						 <i class="material-icons">edit</i>
 						</button></td>
 						<td>
 						<form th:action="@{/positionmaps/} + ${position.POSITION_ID}" method="get">
@@ -80,7 +78,6 @@
 	                   <th>Job Profile</th>
 	                   <th>Department</th>
 	                   <th>Support Type</th>
-	                   <th>Job Requisition link</th>
 	                   <th class="columnhidden">Description</th>
 	                   <th class="columnhidden">Certification</th>
 	                   <th class="columnhidden">Educational Background</th>

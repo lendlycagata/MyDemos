@@ -49,6 +49,13 @@ $(document).ready(function() {
 
 /*TABLE EDITOR*/
 /*account edit*/
+
+$(document).ready(function(){
+	$('#fileFetcher_accounts').change(function(){
+			$('#image_path_accountpage').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
+	});
+});
+
 $(document).ready(function() {
 
 	$('#accountTable').on('click', '#editdetails1', function() {
@@ -264,41 +271,49 @@ $(document).ready(function() {
 	$('#positiontable').DataTable();
 });
 
+$(document).ready(function(){
+	$('#fileFetcher_positions').change(function(){
+			$('#image_path_positionpage').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
+	});
+});
+
 $(document).ready(function() {
 
 	$('#positiontable').on('click', '#editpositiondetails', function() {
 		var currentRow = $(this).closest('tr');
 
-		var col1 = currentRow.find('td:eq(0)').text(); // get current row 1st TD value
-		var col2 = currentRow.find('td:eq(1)').text();
-		var col3 = currentRow.find('td:eq(2)').text();
-		var col4 = currentRow.find('td:eq(3)').text();
-		var col5 = currentRow.find('td:eq(4)').text();
-		var col6 = currentRow.find('td:eq(5)').text();
+		var col0 = currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+		var col1 = currentRow.find('td:eq(1)').text();
+		var col2 = currentRow.find('td:eq(2)').text();
+		var col3 = currentRow.find('td:eq(3)').text();
+		var col4 = currentRow.find('td:eq(4)').text();
+		var col5 = currentRow.find('td:eq(5)').text();
 
 		/*  hidden columns*/
-		var col7 = currentRow.find('td:eq(6)').text();
-		var col8 = currentRow.find('td:eq(7)').text();
-		var col9 = currentRow.find('td:eq(8)').text();
-		var col10 = currentRow.find('td:eq(9)').text();
-		var col11 = currentRow.find('td:eq(10)').text();
-		var col12 = currentRow.find('td:eq(11)').text();
-		var col13 = currentRow.find('td:eq(12)').text();
+		var col6 = currentRow.find('td:eq(6)').text();
+		var col7 = currentRow.find('td:eq(7)').text();
+		var col8 = currentRow.find('td:eq(8)').text();
+		var col9 = currentRow.find('td:eq(9)').text();
+		var col10 = currentRow.find('td:eq(10)').text();
+		var col11 = currentRow.find('td:eq(11)').text();
+		var col12 = currentRow.find('td:eq(12)').text();
+		
 		
 		$('#positionImagePath').attr('src',col4);
-		$('#positionid').val(col1);
-		$('#jobprofile').val(col2);
-		$('#department').val(col3);
-		$('#imagepath').val(col4);
-		$('#supporttype').val(col5);
-		$('#category').val(col12);
-		$('#certification').val(col7);
-		$('#educationalback').val(col8);
-		$('#expreq').val(col9);
-		$('#description').val(col6);
-		$('#skillsreq').val(col10);
-		$('#otherskills').val(col11);
-		$('#trainings').val(col13);
+		$('#positionid').val(col0);
+		$('#jobprofile').val(col1);
+		$('#department').val(col2);
+		$('#imagepath').val(col3);
+		$('#supporttype').val(col4);
+		$('#description').val(col5);
+		$('#certification').val(col6);
+		$('#educationalback').val(col7);
+		$('#expreq').val(col8);
+		$('#skillsreq').val(col9);
+		$('#otherskills').val(col10);
+		$('#category').val(col11);
+	    $('#trainings').val(col12);
+		
 		
 		$('#uploadImageFile').change(function(){
 			$('#imagepath').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));

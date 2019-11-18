@@ -18,7 +18,7 @@
 					<h5>Account Details (shown in the gallery and results)</h5>
 					<hr>
 				
-					<form th:action="@{/addaccount}" method="post">
+					<form th:action="@{/addaccount}" method="post" enctype="multipart/form-data">
 
 						<!-- hidden -->
 						<div class="columnhidden">
@@ -34,6 +34,18 @@
 							Account Name <span><input type="text" id="account_name1"
 								name="ACCOUNT_NAME"></span>
 						</p>
+						<div class="form-group row">
+							
+							<div class="col-md-5">
+								<input class="form-control" type="text" id="image_path_accountpage"
+									name="ACCOUNT_IMAGE_PATH" readonly="readonly">
+							</div>
+							<div class="col-md-5 text-right">
+								<input id="fileFetcher_accounts" type="file" name="file">
+<!-- 								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload -->
+<!-- 									Image</a> -->
+							</div>
+						</div>
 						<p>
 							Account Location <span><input type="text" id="location1"
 								name="LOCATION"></span>
@@ -56,10 +68,7 @@
 						</p>
 
 						<!-- hidden columns in table-->
-						<p>
-							Image Path <span><input type="text" id="image_path1"
-								name="ACCOUNT_IMAGE_PATH"></span>
-						</p>
+						
 						<p>
 							Hours of Operation <span><input type="text"
 								id="operating_hours1" name="OPERATING_HOURS"></span>

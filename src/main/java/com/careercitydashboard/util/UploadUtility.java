@@ -10,11 +10,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public class UploadUtility {
 	/* localpath */
-	private static String UPLOADER_FOLDER = "C://things//";
+	//private static String UPLOADER_FOLDER = "C://things//";
 
 //	 serverpath-dev 
 	
-	 //private static String UPLOADER_FOLDER = "//opt/tomcat/webapps/ImageRepo//";
+	 private static String UPLOADER_FOLDER = "//opt/tomcat/webapps/ImageRepo//";
 	 
 
 	public String singleFileUpload(MultipartFile file) {
