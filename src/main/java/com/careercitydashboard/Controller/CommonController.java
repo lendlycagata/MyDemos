@@ -157,6 +157,12 @@ public class CommonController {
 
 	@RequestMapping(value = "/listposition", method = RequestMethod.GET)
 	public String listofallPositions(Model model) throws IOException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		logger.info("last logged by" + auth.getName());
+		model.addAttribute("modify_by", username);
+		
+		
 		List<Position> listofallpositions = this.positionService.getallPositions();
 		model.addAttribute("allpositions", listofallpositions);
 		return "positiontable";

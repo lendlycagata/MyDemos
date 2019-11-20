@@ -39,6 +39,7 @@
 	                   <th class="columnhidden">Category</th>
 	                   <th class="columnhidden">Image Path</th>
 	                   <th class="columnhidden">Trainings</th>
+	                   <th class="columnhidden">Created BY</th>
 	                   <th>Edit Details</th>
                        <th>View Mapping</th>
 	                 
@@ -58,7 +59,9 @@
 				      <td class="columnhidden" th:text="${position.SKILLS_REQUIRED}"></td>
 				      <td class="columnhidden" th:text="${position.OTHER_SKILLS}"></td>
 				      <td class="columnhidden" th:text="${position.CATEGORY}"></td>
-				      <td class="columnhidden" th:text="${position.TRAININGS}"></td>
+				      <td class="columnhidden" th:text="${position.TRAININGS}"></td>				   
+				      <td class="columnhidden" th:text="${position.CREATED_BY}"></td>
+				      
 				   	  <td><button type="button" id="editpositiondetails" class="btn btn-primary" data-toggle="modal" data-target="#positiondetails"  >
 						 <i class="material-icons">edit</i>
 						</button></td>
@@ -86,7 +89,9 @@
 	                   <th class="columnhidden">Other Skills</th>
 	                   <th class="columnhidden">Category</th>
 	                   <th class="columnhidden">Image Path</th>
-	                   <th class="columnhidden">Trainings</th>
+	                   <th class="columnhidden">Trainings</th>             
+	                   
+	                   <th class="columnhidden">Created By</th>
 	                   <th>Edit Details</th>
                        <th>Edit Mapping</th>
 	               
