@@ -111,8 +111,7 @@ $(document).ready(function() {
 
 /*account mapping*/
 
-$(document).ready(function() {
-
+$(document).ready(function() {editdetails
 	$('#tableaccountmaps').on('click', '#editmapping1', function() {
 
 		var currentRow = $(this).closest('tr');
@@ -285,24 +284,28 @@ $(document).ready(function() {
 	var col11 = currentRow.find('td:eq(11)').text();
 	var col12 = currentRow.find('td:eq(12)').text();
 	var col13 = currentRow.find('td:eq(13)').text();
+	var col14 = currentRow.find('td:eq(14)').text();
 
-	$('#positionImagePath').attr('src',col4);
+
+	
 	$('#positionid').val(col0);		
 	$('#jobprofile').val(col1);
 	$('#department').val(col2);
 	$('#imagepath').val(col3);
-	$('#supporttype').val(col4);
-	$('#description').val(col5);
-	$('#certification').val(col6);
-	$('#educationalback').val(col7);
-	$('#expreq').val(col8);
-	$('#skillsreq').val(col9);
-	$('#otherskills').val(col10);
-	$('#category').val(col11);
-	$('#trainings').val(col13);
-	$('#created').val(col12);
-
+	$('#positionImagePath').attr('src',col4);
+	$('#supporttype').val(col4);	
+	$('#jobreq').val(col5);
+	$('#description').val(col6);
+	$('#certs').val(col7);
+	$('#educationalback').val(col8);
+	$('#expreq').val(col9);
+	$('#skillsreq').val(col10);	
+	$('#otherskills').val(col11);
+	$('#category').val(col12);
+	$('#trainings').val(col13);		
+	$('#mod').val(col14);
 	
+		
 	$('#uploadImageFile').change(function(){
 	$('#imagepath').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
 	});
