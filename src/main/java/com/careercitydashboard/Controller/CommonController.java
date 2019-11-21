@@ -231,14 +231,7 @@ public class CommonController {
 		return "redirect:/sites";
 	}
 	
-	/*@RequestMapping(value="/imagewindow" , method=RequestMethod.GET)
-	public String allImageList( Model model) throws IOException {
-		ShowImageList showImageList = new ShowImageList();
-		showImageList.getAllImage();
-		model.addAttribute("imagelist" , showImageList.getAllImage());
-		return "ImagePage";
-		
-	}*/
+	
 	
 	
 	/*users table*/
@@ -269,6 +262,13 @@ public class CommonController {
 		this.userService.updateUsers(users);
 		return "redirect:/allusers";
 
+	}
+	
+	@RequestMapping(value="/modaltester")
+	public String allImageList( )  {
+		
+		return "testmodal";
+		
 	}
 	
 

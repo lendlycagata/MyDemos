@@ -118,7 +118,7 @@ $(document).ready(function() {
 
 /*account mapping*/
 
-$(document).ready(function() {editdetails
+$(document).ready(function() {
 	$('#tableaccountmaps').on('click', '#editmapping1', function() {
 
 		var currentRow = $(this).closest('tr');
