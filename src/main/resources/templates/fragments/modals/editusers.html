@@ -13,14 +13,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Edit User Details</h4>
       </div>
       <div class="modal-body">
       <form th:action="@{/edituser}" method="post">
-        hidden
+       <!--  hidden -->
         <div class="columnhidden"><p>User Id<span><input type="number"  id="user_id" name="USER_ID"  ></p></span> </p></div>
         <div class="columnhidden"><p>Changed By<span><input type="text"  id="created_by" name="created_by" th:value="${changedby}"  ></p></span> </p></div>
-        hidden
+       <!--  hidden -->
         <p>First Name<span><input type="text" id= "firstname" name="firstname"></span></p>
         <p>Last Name<span><input type="text" id="lastname" name="lastname"></span></p>
         <p>Employee Id<span><input type="text" id="username1" name="username"></span></p>
@@ -34,9 +34,9 @@
         
         </form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      </div> -->
     </div>
 
   </div>
