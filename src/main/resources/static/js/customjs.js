@@ -46,9 +46,15 @@ $(document).ready(function() {
 	$('#userspage').DataTable();
 });
 
-
 /*TABLE EDITOR*/
 /*account edit*/
+
+$(document).ready(function(){
+	$('#fileFetcher_accounts').change(function(){
+			$('#image_path_accountpage').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
+	});
+});
+
 $(document).ready(function() {
 
 	$('#accountTable').on('click', '#editdetails1', function() {
@@ -111,7 +117,7 @@ $(document).ready(function() {
 
 /*account mapping*/
 
-$(document).ready(function() {editdetails
+$(document).ready(function() {
 	$('#tableaccountmaps').on('click', '#editmapping1', function() {
 
 		var currentRow = $(this).closest('tr');
@@ -263,6 +269,12 @@ $(document).ready(function() {
 	$('#positiontable').DataTable();
 });
 
+$(document).ready(function(){
+	$('#fileFetcher_positions').change(function(){
+			$('#image_path_positionpage').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
+	});
+});
+
 $(document).ready(function() {
 
 	$('#positiontable').on('click', '#editpositiondetails', function() {
@@ -285,7 +297,9 @@ $(document).ready(function() {
 	var col12 = currentRow.find('td:eq(12)').text();
 	var col13 = currentRow.find('td:eq(13)').text();
 	var col14 = currentRow.find('td:eq(14)').text();
-
+	var col15 = currentRow.find('td:eq(15)').text();
+	var col16= currentRow.find('td:eq(16)').text();
+	var col17= currentRow.find('td:eq(17)').text();
 
 	
 	$('#positionid').val(col0);		
@@ -304,6 +318,9 @@ $(document).ready(function() {
 	$('#category').val(col12);
 	$('#trainings').val(col13);		
 	$('#mod').val(col14);
+	$('#disclaimer').val(col15);
+	$('#skills_premium').val(col16);
+	$('#recom').val(col17);
 	
 		
 	$('#uploadImageFile').change(function(){
@@ -315,49 +332,7 @@ $(document).ready(function() {
 	});
 
 
-/*$(document).ready(function() {
 
-	$('#positiontable').on('click', '#editpositiondetails', function() {
-		var currentRow = $(this).closest('tr');
-
-		var col1 = currentRow.find('td:eq(0)').text(); // get current row 1st TD value
-		var col2 = currentRow.find('td:eq(1)').text();
-		var col3 = currentRow.find('td:eq(2)').text();
-		var col4 = currentRow.find('td:eq(3)').text();
-		var col5 = currentRow.find('td:eq(4)').text();
-		var col6 = currentRow.find('td:eq(5)').text();
-
-		  hidden columns
-		var col7 = currentRow.find('td:eq(6)').text();
-		var col8 = currentRow.find('td:eq(7)').text();
-		var col9 = currentRow.find('td:eq(8)').text();
-		var col10 = currentRow.find('td:eq(9)').text();
-		var col11 = currentRow.find('td:eq(10)').text();
-		var col12 = currentRow.find('td:eq(11)').text();
-		var col13 = currentRow.find('td:eq(12)').text();
-		
-		$('#positionImagePath').attr('src',col4);
-		$('#positionid').val(col1);
-		$('#jobprofile').val(col2);
-		$('#department').val(col3);
-		$('#imagepath').val(col4);
-		$('#supporttype').val(col5);
-		$('#category').val(col12);
-		$('#certification').val(col7);
-		$('#educationalback').val(col8);
-		$('#expreq').val(col9);
-		$('#description').val(col6);
-		$('#skillsreq').val(col10);
-		$('#otherskills').val(col11);
-		$('#trainings').val(col13);
-		
-		$('#uploadImageFile').change(function(){
-			$('#imagepath').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
-		});
-
-	});
-
-});*/
 
 
 /*image view*/
@@ -425,3 +400,28 @@ $(document).ready(function(){
 			$('#imagepath_container').val($(this).val().replace(/C:\\fakepath\\/,"https://35.185.222.6/ImageRepo/"));
 	});
 });*/
+
+
+/*Site-Custom JS */
+/*recently added for site table*/
+$(document).ready(function() {
+	$('#SiteTable').DataTable();
+});
+
+$(document).ready(function(){
+	$('#SiteTable').on('click', '#updatesite', function(){
+		var currentRow = $(this).closest('tr');
+		
+		var col0 = currentRow.find('td:eq(0)').text(); // get current row 1st TD value
+		var col1 = currentRow.find('td:eq(1)').text();
+		
+		/*modal data catch*/
+		$('#site_id').val(col0);
+		$('#site_name').val(col1);
+		
+	});
+});
+
+
+
+

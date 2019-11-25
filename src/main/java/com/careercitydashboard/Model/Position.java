@@ -47,6 +47,12 @@ public class Position {
 	
 	private String CREATED_BY;
 	
+	private String DISCLAIMER;
+	
+	private Integer SKILLS_PREMIUM;
+	
+	private String RECOM_TIU_COURSES;
+	
 	@OneToMany(fetch=FetchType.LAZY)
 	@JoinColumn(name="POSITION_ID")
 	private List<PositionAnswers> positionAnswers;
@@ -186,6 +192,31 @@ public class Position {
 	public void setCREATED_BY(String cREATED_BY) {
 		CREATED_BY = cREATED_BY;
 	}
+	
+
+	public String getDISCLAIMER() {
+		return DISCLAIMER;
+	}
+
+	public void setDISCLAIMER(String dISCLAIMER) {
+		DISCLAIMER = dISCLAIMER;
+	}
+
+	public Integer getSKILLS_PREMIUM() {
+		return SKILLS_PREMIUM;
+	}
+
+	public void setSKILLS_PREMIUM(Integer sKILLS_PREMIUM) {
+		SKILLS_PREMIUM = sKILLS_PREMIUM;
+	}
+
+	public String getRECOM_TIU_COURSES() {
+		return RECOM_TIU_COURSES;
+	}
+
+	public void setRECOM_TIU_COURSES(String rECOM_TIU_COURSES) {
+		RECOM_TIU_COURSES = rECOM_TIU_COURSES;
+	}
 
 	@Override
 	public String toString() {
@@ -194,20 +225,8 @@ public class Position {
 				+ ", EDUCATIONAL_BACKGROUND=" + EDUCATIONAL_BACKGROUND + ", EXPERIENCE_REQUIRED=" + EXPERIENCE_REQUIRED
 				+ ", SKILLS_REQUIRED=" + SKILLS_REQUIRED + ", OTHER_SKILLS=" + OTHER_SKILLS + ", CATEGORY=" + CATEGORY
 				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", JOB_REQ=" + JOB_REQ + ", CREATED_BY="
-				+ CREATED_BY + ", positionAnswers=" + positionAnswers + "]";
-	}
-
-	/*@Override
-	public String toString() {
-		return "Position [POSITION_ID=" + POSITION_ID + ", DEPARTMENT=" + DEPARTMENT + ", SUPPORT_TYPE=" + SUPPORT_TYPE
-				+ ", JOB_PROFILE=" + JOB_PROFILE + ", DESCRIPTION=" + DESCRIPTION + ", CERTIFICATION=" + CERTIFICATION
-				+ ", EDUCATIONAL_BACKGROUND=" + EDUCATIONAL_BACKGROUND + ", EXPERIENCE_REQUIRED=" + EXPERIENCE_REQUIRED
-				+ ", SKILLS_REQUIRED=" + SKILLS_REQUIRED + ", OTHER_SKILLS=" + OTHER_SKILLS + ", CATEGORY=" + CATEGORY
-				+ ", IMAGE_PATH=" + IMAGE_PATH + ", TRAININGS=" + TRAININGS + ", JOB_REQ=" + JOB_REQ
-				+ ", positionAnswers=" + positionAnswers + "]";
-	}
-*/
-	
-	
+				+ CREATED_BY + ", DISCLAIMER=" + DISCLAIMER + ", SKILLS_PREMIUM=" + SKILLS_PREMIUM
+				+ ", RECOM_TIU_COURSES=" + RECOM_TIU_COURSES + ", positionAnswers=" + positionAnswers + "]";
+	}	
 
 }

@@ -1,162 +1,103 @@
-<!-- Modal -->
-
-
 <div id="positiondetails" class="modal fade" role="dialog">
 	<div class="modal-dialog">
-			<div th:replace="fragments/stylemodal"></div>
-			
-			
-		<!-- Modal content-->
-		<div class="modal-content">
-		
-			<div class="modal-body">
-		
-			<form th:action="@{/updateposition}" method="post"  enctype="multipart/form-data">
-				<div class="modal-header">
-					<div class="modal-title">
-						<h3>DIGITAL SERVICE & SUPPORT DETAILS</h3>
-						<small>This data are shown in the gallery and results</small>
-						<h6>Delete Value to disable position</h6>
-					</div>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-
-								
-					
-				
-					
-					<div class="columnhidden">
-						<p>
-							Position Id<span><input type="number" id="positionid"
-								name="POSITION_ID"></span>
-						</p>
-					</div>
-					
-								<div>
+		<div th:replace="fragments/stylemodal"></div>					
+			<div class="modal-content">		
+				<div class="modal-body">		
+					<form th:action="@{/updateposition}" method="post"  enctype="multipart/form-data">
+							<div class="modal-header">
+								<div class="modal-title">
+									<h3>DIGITAL SERVICE & SUPPORT DETAILS</h3>
+									<small>This data are shown in the gallery and results</small>
+									<h6>Delete Value to disable position</h6>
+								</div>								
+							</div>
+						<div class="modal-body">
+							<div class="columnhidden">
+								<p>Position Id<span><input type="number" id="positionid" name="POSITION_ID"></span>	</p>
+							</div>
+							<div>
 								<label class="text-right font-weight-bold ">Job Profile</label>								
 								<input class="form-control" type="text" id="jobprofile" name="JOB_PROFILE">
-								</div>
-					
-						
-						
-								<div >
+							</div>
+							<div >
 								<label class="text-right  font-weight-bold ">Department</label>
 								<input class="form-control" type="text" id="department"	name="DEPARTMENT">
+							</div>
+							<div>
+				  				<label class="text-right font-weight-bold">Image Path</label>
+				  				<input class="form-control" type="text" id="imagepath" name="IMAGE_PATH">
+			  				</div>
+			  				<div class="card-body">
+							     <img class="card-img-top" id="positionImagePath">
+							</div>
+							<div >
+								<input id="uploadImageFile" type="file" name="file">										
+							</div><hr>
+							<div >
+								<label class="text-right  font-weight-bold">Support Type</label>				
+								<input class="form-control" type="text" id="supporttype" name="SUPPORT_TYPE">
 								</div>
-					
-						
-												
-						
-								
-					  				<div>
-					  				<label class="text-right font-weight-bold">Image Path</label>
-					  				<input class="form-control" type="text" id="imagepath" name="IMAGE_PATH">
-					  				</div>
-									<div class="card-body">
-								       <img class="card-img-top" id="positionImagePath">
-									</div>
-											
-									  
-											<div >
-												<input id="uploadImageFile" type="file" name="file">
-												<!-- <a class="btn btn-primary" th:href="@{/uploadpage}">Upload Image</a> -->
-											</div>
-								   <hr>
-					
-									<div >
-				
-								<label class="text-right  font-weight-bold">Support Type</label>
-							
-									<input class="form-control" type="text" id="supporttype" name="SUPPORT_TYPE">
+							<!--hidden  -->
+							<div class="columnhidden">
+								<label class=" text-right  font-weight-bold">JOb Requisition</label>
+								<div class="col-md-10">
+								<textarea class="form-control " id="jobreq" name="JOB_REQ"></textarea>
 								</div>
-					
-			
-					<!--hidden  -->
-					<div class="columnhidden">
-						<label class=" text-right  font-weight-bold">JOb Requisition</label>
-						<div class="col-md-10">
-							<textarea class="form-control " id="jobreq" name="JOB_REQ"></textarea>
-						</div>
-					</div>	
-					
-					
-						<div>
-						<label class=" text-right  font-weight-bold">Description</label>
-						
-						<textarea class="form-control" id="description" name="DESCRIPTION"></textarea>
-						</div>
-				
-					
-					<div>
-					<label class=" text-right font-weight-bold">Certification</label>
-					<input class="form-control" type="text" id="certs"	name="CERTIFICATION">
-				   </div>
-					
-					
-					
-					
-							   <div>
-								<label class="text-right  font-weight-bold">Educational Background</label>
-								
+							</div>	
+							<div>
+								<label class=" text-right  font-weight-bold">Description</label>
+								<textarea class="form-control" id="description" name="DESCRIPTION"></textarea>
+							</div>
+							<div>
+								<label class=" text-right font-weight-bold">Certification</label>
+								<input class="form-control" type="text" id="certs"	name="CERTIFICATION">
+				   			</div>
+				   		   <div>
+								<label class="text-right  font-weight-bold">Educational Background</label>						
 								<input class="form-control" type="text" id="educationalback" name="EDUCATIONAL_BACKGROUND">
-								</div>
-							
-								
-							  <div>
+						   </div>
+				     	  <div>
 								<label class=" text-right  font-weight-bold ">Experience Required</label>
 								<input class="form-control" type="text" id="expreq" name="EXPERIENCE_REQUIRED">
-								</div>
-								
-								
-								<div>
+						  </div>
+			            	<div>
 								<label class="text-right  font-weight-bold ">Skills Required</label>
 								<input class="form-control" type="text" id="skillsreq" name="SKILLS_REQUIRED">
-								</div>
-							
-							    <div>
-								<label class=" text-right font-weight-bold">Other Skills</label>
-								
+							</div>
+						    <div>
+								<label class=" text-right font-weight-bold">Other Skills</label>								
 								<input class="form-control" type="text" id="otherskills" name="OTHER_SKILLS">
-								</div>
-							
-							   <div >
-								<label class="text-right  font-weight-bold">Category</label>
-								
+							</div>							
+					    	 <div >
+								<label class="text-right  font-weight-bold">Category</label>								
 								<input class="form-control" type="text" id="category" name="CATEGORY">
-								</div>
-								
-								
-								<div >
+							</div>									
+							<div >
 								<label class="text-right  font-weight-bold">Trainings</label>								
 								<input class="form-control" type="text" id="trainings" name="TRAININGS">
-								</div>
-								
-					
-						<div class="columnhidden">
-						
-						<label class="text-right  font-weight-bold">Created By</label>
-						<input class="form-control" type="text"  name ="CREATED_BY" th:value="${modify_by}">
-						
-						
-						
-					    </div>	
-					
-								
-								
-				
-									
-					<p>
-						<span></span>
-					</p>
-
-
+							</div>
+				    		<div class="columnhidden">						
+								<label class="text-right  font-weight-bold">Created By</label>
+								<input class="form-control" type="text"  name ="CREATED_BY" th:value="${modify_by}">
+							</div>
+							<div>
+								<label class="text-right  font-weight-bold ">Disclaimer</label>
+								<input class="form-control" type="text" id="disclaimer" name="DISCLAIMER">
+							</div>
+						    <div>
+								<label class=" text-right font-weight-bold">Skills Premium</label>								
+								<input class="form-control" type="text" id="skills_premium" name="SKILLS_PREMIUM">
+							</div>							
+					    	 <div >
+								<label class="text-right  font-weight-bold">Recommended TIU Courses</label>								
+								<input class="form-control" type="text" id="recom" name="RECOM_TIU_COURSES">
+							</div>	
 				</div>
 				<div class="modal-footer">
 					<input type="submit" class="btn btn-success" value="Save">
 				</div>
 			</form>
-		</div>
+	    	</div>
 		</div>
 	</div>
 </div>

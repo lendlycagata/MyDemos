@@ -9,18 +9,31 @@
         <h4 class="modal-title">Modal Header</h4>
       </div> -->
       <div class="modal-body">
-	      <form th:action="@{/addposition}" method="post">
+	      <form th:action="@{/addposition}" method="post" enctype="multipart/form-data">
 			      <p>Position <span><input type="text" id="jobprofile2" name="JOB_PROFILE"></span></p>
 			         <div>
 			             <p>Category <span><select id="category2" name="CATEGORY" >
+			             	  <option value="ST">Support Role</option>
 							  <option value="DS">Digital Services</option>
-							  <option value="ST">Support Role</option>
+							  <option value="ST">CCO Role</option>
 						   </select></span></p> 
 				     </div>
 				  <div class="columnhidden"><p>Changed By<span><input type="text"   name="CREATED_BY" th:value="${modify_by}"  ></p></span> </p></div>  
 				  <p>Department <span><input type="text" id="department2" name="DEPARTMENT"/></span></p>
 				  <p>Support Type <span><input type="text" id="supporttype2" name="SUPPORT_TYPE"></span></p>
-				  <p>Image Path <span><input type="text" id="imagepath2" name="IMAGE_PATH"></span></p>
+				  <p>Image Path </p>
+				  <div class="form-group row">
+							
+							<input class="form-control" type="text" id="image_path_positionpage"
+								name="IMAGE_PATH" readonly="readonly">
+						
+						<div class="col-md-5 text-right">
+							<input id="fileFetcher_positions" type="file" name="file">
+<!-- 								<a class="btn btn-primary" th:href="@{/uploadpage}">Upload -->
+<!-- 									Image</a> -->
+						</div>
+				  </div>
+				  		
 				  <p>Certification <span><input type="text" id="certification2" name="CERTIFICATION"></span></p>
 				  <p>Educational Background <span><input type="text" id="educational2" name="EDUCATIONAL_BACKGROUND"></span></p>
 				  <p>Exp Required <span><input type="text" id="exp2" name="EXPERIENCE_REQUIRED"></span></p>
@@ -29,13 +42,15 @@
 				  <p>Description <span><textarea class="form-control rounded-0"  rows="4" id="description2" name="DESCRIPTION"></textarea></span></p>
 				  <p>Trainings <span><textarea class="form-control rounded-0"  rows="4" id="trainings2" name="TRAININGS"></textarea></span></p>
 				  <p>Job Requisition <span><input type="text" id="job_req2"name="JOB_REQ"></span></p>
-				     <hr>
+				  
+				  <p>Disclaimer<span><textarea class="form-control rounded-0"  rows="4" id="disclaimer2" name="DISCLAIMER"></textarea></span></p>
+				  <p>Skills Premium<span><input type="number" id="skills_premium2" name="SKILLS_PREMIUM"></span></p>
+				  <p>Recommended TIU Courses<span><textarea class="form-control rounded-0"  rows="4" id="recom2" name="RECOM_TIU_COURSES"></textarea></span></p>
+				  <hr>
 		     	  <input type="submit" value="Save" class="btn btn-success">	
 		   </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+    
     </div>
 
   </div>

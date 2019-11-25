@@ -1,0 +1,30 @@
+<div  id="updateSite" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div th:replace="fragments/stylemodal"> </div>
+			
+				
+				<div class="modal-content">
+	   			    <div class="modal-header">	
+	   			    <h4 class="modal-title">Edit Site Details</h4>	
+	   			    </div>	
+	   			    
+	   			    <div class="modal-body">
+					<form th:action="@{/updateSite}" method="POST">
+						 <div class="columnhidden"><p>Site Id<span><input type="number"  id="site_id" name="SITE_ID"></p></span> </p></div>					
+						 <div class="columnhidden">
+			             <p>Made By<span><input type="text"   name="CREATED_BY" th:value="${made_by}"></span></p>
+			             </div> 
+						 <p>Site Name<span><input type="text" id= "site_name" name="SITE_NAME"></span></p>
+						 <input type="submit" value="Save" class="btn btn-success">
+					</form>
+					</div>
+				
+			</div>
+		
+			
+
+	</div>
+</div>
+
+
+

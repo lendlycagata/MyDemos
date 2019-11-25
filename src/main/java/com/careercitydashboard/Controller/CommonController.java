@@ -109,7 +109,11 @@ public class CommonController {
 	}
 
 	@RequestMapping(value = "/addaccount", method = RequestMethod.POST)
-	public String addAccount(Account account) {
+	public String addAccount(Account account , @RequestParam("file") MultipartFile file) {
+		UploadUtility upload = new UploadUtility();
+		if (!file.isEmpty())
+			upload.singleFileUpload(file);
+	
 		this.accountService.saveAccount(account);
 		return "redirect:/listaccount";
 	}
@@ -175,7 +179,11 @@ public class CommonController {
 	}
 
 	@RequestMapping(value = "/addposition", method = RequestMethod.POST)
-	public String addPosition(Position position) {
+	public String addPosition(Position position ,  @RequestParam("file") MultipartFile file) {
+		UploadUtility upload = new UploadUtility();
+		if (!file.isEmpty())
+			upload.singleFileUpload(file);
+		
 		this.positionService.savePosition(position);
 		return "redirect:/listposition";
 	}
@@ -207,6 +215,12 @@ public class CommonController {
 	
 	@RequestMapping(value="/sites" , method=RequestMethod.GET)
 	public String listOfAllSites(Model model) {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		logger.info("last logged by" + auth.getName());
+		model.addAttribute("made_by", username);
+		
 		List <Site> getListOfAllSites= this.siteService.getAllSiteList();
 		model.addAttribute("sitelist", getListOfAllSites);
 		return "SiteTable";
@@ -222,14 +236,15 @@ public class CommonController {
 		this.siteService.deleteSite(SITE_ID);
 		return "redirect:/sites";
 	}
-	@RequestMapping(value="/imagewindow" , method=RequestMethod.GET)
-	public String allImageList( Model model) throws IOException {
-		ShowImageList showImageList = new ShowImageList();
-		showImageList.getAllImage();
-		model.addAttribute("imagelist" , showImageList.getAllImage());
-		return "ImagePage";
+	
+	@RequestMapping(value="/updateSite" , method=RequestMethod.POST)
+	public String editSite(Site site ) {
 		
+		this.siteService.updateSite(site);
+		return "redirect:/sites";
+
 	}
+	
 	
 	
 	/*users table*/
@@ -260,6 +275,13 @@ public class CommonController {
 		this.userService.updateUsers(users);
 		return "redirect:/allusers";
 
+	}
+	
+	@RequestMapping(value="/modaltester")
+	public String allImageList( )  {
+		
+		return "testmodal";
+		
 	}
 	
 

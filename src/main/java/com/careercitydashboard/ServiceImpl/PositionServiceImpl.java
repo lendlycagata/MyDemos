@@ -53,6 +53,9 @@ public class PositionServiceImpl implements PositionService {
 		updatedPosition.setTRAININGS(position.getTRAININGS());
 		updatedPosition.setCREATED_BY(position.getCREATED_BY());
 		
+		updatedPosition.setDISCLAIMER(position.getDISCLAIMER());
+		updatedPosition.setSKILLS_PREMIUM(position.getSKILLS_PREMIUM());
+		updatedPosition.setRECOM_TIU_COURSES(position.getRECOM_TIU_COURSES());
 		// TODO Auto-generated method stub
 		return this.positionRepo.save(updatedPosition);
 	}

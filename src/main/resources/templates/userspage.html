@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Career City Admin Dashboard</title>
-	
+	<title>Career City Admin Dashboard</title>	
 	<div th:replace="fragments/headplugs"> </div>
 </head>
 
@@ -14,7 +13,7 @@
 	<div class="container-fluid">
   		<div class="row content">
     		<div class="col-sm-2 sidenav"></br>
-      			<div th:replace="fragments/navbar"> </div>
+      		<div th:replace="fragments/navbar"> </div>
     		</div>
     		<div class="col-sm-10 content">
     			<div th:replace="fragments/headerfrag"></div>
@@ -22,21 +21,20 @@
 		      		<span>
 		      			<button class="btn btn-info " data-toggle="modal" data-target="#adduser">Add user</button>
 		      		</span>
-		      	</h4>
-		      	<hr>
+		      	</h4><hr>
 		      	<table id="userspage" class="table table-striped" >
-			  		<thead>
-	            		<tr>
-			                <!-- <th class="columnhidden">*</th> -->
-			                <th>User Id</th>
-			                <th>First Name</th>
-			                <th>Last Name</th>
-			                <th>Employee Id</th>
-			            	<th>Department</th>
-			                <th>Active</th>
-		                    <th>Options</th>
-	            		</tr>
-	        		</thead>
+				  		<thead>
+		            		<tr>
+				                <!--hidden -->
+				                <th>User Id</th>
+				                <th>First Name</th>
+				                <th>Last Name</th>
+				                <th>Employee Id</th>
+				            	<th>Department</th>
+				                <th>Active</th>
+			                    <th>Options</th>
+		            		</tr>
+		        	   	</thead>
 		  			<tbody >
 		       			<tr th:each="userslist : ${alluserslist}">
 					      <td th:text="${userslist.USER_ID}"></td>
@@ -66,8 +64,8 @@
          </div>
      </div>
      
-     <div th:replace="fragments/modals/adduser"></div>
-	 <div th:replace="fragments/modals/editusers"></div>
- 	 <div th:replace="fragments/footplugs"></div>
+<div th:replace="fragments/modals/adduser"></div>
+<div th:replace="fragments/modals/editusers"></div>
+<div th:replace="fragments/footplugs"></div>
 </body>
 </html>
